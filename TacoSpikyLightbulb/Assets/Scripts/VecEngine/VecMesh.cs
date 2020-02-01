@@ -238,6 +238,15 @@ public class VecMesh : MonoBehaviour
         VecManager.Instance.UnregisterVecMesh(this);
     }
 
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Explode();
+        }
+    }
+
     void OnGUI()
     {
         if (Hidden)

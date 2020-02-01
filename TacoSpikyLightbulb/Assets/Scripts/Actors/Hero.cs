@@ -13,7 +13,15 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            PlayAnimation("run");
+        }
 
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Explode();
+        }
     }
     
     public void Explode()

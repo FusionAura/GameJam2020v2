@@ -46,17 +46,19 @@ class VecEngineWindow : EditorWindow
             List<VecMesh> vecMeshes = new List<VecMesh>();
             VecMeshProcessor.VecMeshData[] vmds = VecMeshProcessor.ProcessTextAsset(vecModel.VecMeshAsset);
 
-            Handles.Label(vecModel.transform.position,
-                vecModel.VecMeshAsset.name.ToString());
+            /*Handles.Label(vecModel.transform.position,
+                vecModel.VecMeshAsset.name.ToString());*/
 
-            var t = vecModel.transform.localToWorldMatrix;
-            t *= Matrix4x4.Rotate(Quaternion.AngleAxis(90f, Vector3.right));
-            t *= Matrix4x4.Rotate(Quaternion.AngleAxis(180f, Vector3.up));
+            //t *= Matrix4x4.Rotate(Quaternion.AngleAxis(90f, Vector3.right));
+            //t *= Matrix4x4.Rotate(Quaternion.AngleAxis(180f, Vector3.up));
 
             //Handles.BeginGUI();
             // Do your drawing here using GUI.
             foreach (var vmd in vmds) { 
-                foreach(var edge in vmd.Edges) { 
+                foreach(var edge in vmd.Edges) {
+                    var t = vecModel.transform.localToWorldMatrix;
+                    t *= vmd.InitialTransform;
+
                     Handles.DrawLine(
                         t.MultiplyPoint(vmd.Verts[edge.VertIdxs[0]]),
                         t.MultiplyPoint(vmd.Verts[edge.VertIdxs[1]])
