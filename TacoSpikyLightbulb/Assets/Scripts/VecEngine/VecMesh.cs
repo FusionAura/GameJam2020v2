@@ -254,7 +254,7 @@ public class VecMesh : MonoBehaviour
         }
 
         Destroy(this.gameObject);
-        Debug.Log("VecMesh \"" + this.name + "\" exploded.");
+        //Debug.Log("VecMesh \"" + this.name + "\" exploded.");
     }
 
     public void OnDestroy()
