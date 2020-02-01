@@ -828,6 +828,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1034885365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 445221638527088660, guid: 75df3e2f22ee56b46ac8adbdf9975738,
+    type: 3}
+  m_PrefabInstance: {fileID: 9197011981589253512}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1177578144
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4191000ceed787142b62a30cdc5f04bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemHoldParent: {fileID: 1034885365}
 --- !u!1 &1288283044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,7 +1428,7 @@ GameObject:
   - component: {fileID: 2094372733}
   m_Layer: 0
   m_Name: obj_beer
-  m_TagString: Untagged
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1523,7 +1530,7 @@ PrefabInstance:
     - target: {fileID: 9197011981405758756, guid: 75df3e2f22ee56b46ac8adbdf9975738,
         type: 3}
       propertyPath: m_Animations.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9197011981405758756, guid: 75df3e2f22ee56b46ac8adbdf9975738,
         type: 3}
@@ -1535,7 +1542,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Animation
       value: 
-      objectReference: {fileID: 6786142354665394581, guid: 17f12f1a720995d40b04512887d6672f,
+      objectReference: {fileID: -7620468718608648079, guid: 17f12f1a720995d40b04512887d6672f,
         type: 3}
     - target: {fileID: 9197011981405758756, guid: 75df3e2f22ee56b46ac8adbdf9975738,
         type: 3}
@@ -1560,6 +1567,18 @@ PrefabInstance:
       propertyPath: m_Animations.Array.data[4]
       value: 
       objectReference: {fileID: 6786142354665394581, guid: 17f12f1a720995d40b04512887d6672f,
+        type: 3}
+    - target: {fileID: 9197011981405758756, guid: 75df3e2f22ee56b46ac8adbdf9975738,
+        type: 3}
+      propertyPath: m_Animations.Array.data[5]
+      value: 
+      objectReference: {fileID: -7620468718608648079, guid: 17f12f1a720995d40b04512887d6672f,
+        type: 3}
+    - target: {fileID: 9197011981405758756, guid: 75df3e2f22ee56b46ac8adbdf9975738,
+        type: 3}
+      propertyPath: m_Animations.Array.data[6]
+      value: 
+      objectReference: {fileID: -7811437093079328347, guid: 17f12f1a720995d40b04512887d6672f,
         type: 3}
     m_RemovedComponents:
     - {fileID: 9197011980458574683, guid: 75df3e2f22ee56b46ac8adbdf9975738, type: 3}
