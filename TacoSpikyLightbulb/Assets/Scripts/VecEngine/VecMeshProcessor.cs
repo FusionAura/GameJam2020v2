@@ -216,7 +216,17 @@ public static class VecMeshProcessor
 
 					// Swap Y and Z axis.
 					// TBA: This is still not quite right, but getting closer.
-					//Matrix4x4 m = Matrix4x4.LookAt(Vector3.zero, q., -q.Up);
+					Matrix4x4 m = Matrix4x4.LookAt(Vector3.zero, q*Vector3.forward, (q.Multiply(-1f))*Vector3.up);
+					//Matrix m = Matrix.CreateWorld(Vector3.Zero, q.Forward, -q.Up);
+
+					Quaternion quat;
+					quat = m.ExtractRotation();
+
+					curMeshRotation =
+						Matrix4x4.Rotate(quat) *
+						Matrix4x4.Rotate(Quaternion.AngleAxis(90f, Vector3.right));
+
+					// NOT WORKING! INVESTIGATE LATER!
 
 					/*Vector3 v;
 					Quaternion quat;
@@ -226,8 +236,32 @@ public static class VecMeshProcessor
 						Matrix.CreateFromQuaternion(quat) *
 						Matrix.CreateRotationX((float)Math.PI / 2f);*/
 
-					curMeshRotation = q;
-					curMeshRotation *= Matrix4x4.Rotate(Quaternion.AngleAxis(-90f, Vector3.right));
+					/*
+					 
+
+					// Change to r
+                        float[] r = SplitStringToFloats(e);
+                        Matrix q = Matrix.CreateFromQuaternion(new Quaternion(r[3], r[0], r[1], r[2]));
+
+                        // Swap Y and Z axis.
+                        // TBA: This is still not quite right, but getting closer.
+                        Matrix m = Matrix.CreateWorld(Vector3.Zero, q.Forward, -q.Up);
+
+                        Vector3 v;
+                        Quaternion quat;
+                        m.Decompose(out v, out quat, out v);
+
+                        rotation =
+                            Matrix.CreateFromQuaternion(quat) *
+                            Matrix.CreateRotationX((float)Math.PI / 2f);
+
+                        break;
+
+
+	*/
+
+					//curMeshRotation = q;
+					//curMeshRotation *= Matrix4x4.Rotate(Quaternion.AngleAxis(-90f, Vector3.right));
 
 					break;
 

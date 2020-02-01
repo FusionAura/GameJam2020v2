@@ -9,6 +9,8 @@ public class VecModel : MonoBehaviour
 
     private List<VecMesh> VecMeshes;
 
+    public VecMesh.MaskedBy MaskedBy = VecMesh.MaskedBy.All;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class VecModel : MonoBehaviour
             // Create the GameObject.
             var meshGO = new GameObject("VecMesh");
             VecMesh vm = meshGO.AddComponent<VecMesh>() as VecMesh;
+            vm._MaskedBy = MaskedBy;
             vm.MeshData = vmd;
 
             // Parent to this gameobject.

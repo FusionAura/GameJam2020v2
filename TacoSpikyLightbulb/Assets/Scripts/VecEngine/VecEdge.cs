@@ -459,7 +459,7 @@ public class VecEdge
 
         foreach (var l in vecLineDefs)
         {
-            VecLine.DrawVecLine(l.P1, l.P2, 0.6f);
+            VecLine.DrawVecLine(l.P1, l.P2, 0.3f);
         }
     }
 
