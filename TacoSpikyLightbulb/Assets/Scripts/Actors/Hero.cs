@@ -46,7 +46,8 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Run
+        /*
+         * // Run
         if (Input.GetKeyDown(KeyCode.A))
         {
             PlayAnimation("run");
@@ -81,7 +82,7 @@ public class Hero : MonoBehaviour
             PlayAnimation("hit-up", () => {
                 lightbulb.GetComponent<Rigidbody>().useGravity = true;
             }, -0.2f);
-        }
+        }*/
 
         for (var i = 0; i < timeouts.Count; i++)
         {

@@ -9,7 +9,7 @@ public class Go : InputAction
     {
         if (seperatedInputWords.Length > 1)
         {
-            controller.roomNavigation.AttemptToChangeRooms(seperatedInputWords[1]);
+            controller.roomNavigation.AttemptToChangeRooms(seperatedInputWords[1],seperatedInputWords[0]);
         }
         else
         {

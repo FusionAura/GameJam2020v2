@@ -36,12 +36,33 @@ public class RoomNavigation : MonoBehaviour
         }
     }
 
-    public void AttemptToChangeRooms(string DirectionNoun)
+    public void AttemptToChangeRooms(string DirectionNoun,string MovementVerb)
     {
         if (exitDictionary.ContainsKey(DirectionNoun))
         {
             CurrentRoom = exitDictionary[DirectionNoun];
-            controller.LogStringWithReturn("Dubalom heads off to " + DirectionNoun);
+            if (MovementVerb == "shift"|| MovementVerb == "walk" || MovementVerb == "located"|| MovementVerb == "traverse")
+            {
+                MovementVerb = MovementVerb+"ed";
+            }
+            else if (MovementVerb == "move")
+            {
+                MovementVerb = MovementVerb + "d";
+            }
+            else if (MovementVerb == "jog")
+            {
+                MovementVerb = MovementVerb + "ged";
+            }
+            else if (MovementVerb == "run")
+            {
+                MovementVerb = "ran";
+            }
+            else if (MovementVerb == "go")
+            {
+                MovementVerb = "goes";
+            }
+
+            controller.LogStringWithReturn("Dubalom "+ MovementVerb + " " + DirectionNoun);
             controller.DisplayRoomText();
 
             Destination = RoomLocations[CurrentRoom].gameObject;
