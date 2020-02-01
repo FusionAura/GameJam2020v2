@@ -67,6 +67,11 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            PickupGameObject(GameObject.Find("obj_ladder"));
+        }
+
         /*
          * // Run
         if (Input.GetKeyDown(KeyCode.A))
@@ -99,7 +104,7 @@ public class Hero : MonoBehaviour
         }*/
 
         // Swing Broom at ladder
-        if (Input.GetKeyDown(KeyCode.F))
+        /*if (Input.GetKeyDown(KeyCode.F))
         {
             Fall();
         }
@@ -114,7 +119,7 @@ public class Hero : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
            // DropCurrentGameObject();
-        }
+        }*/
 
         for (var i = 0; i < timeouts.Count; i++)
         {
@@ -154,7 +159,7 @@ public class Hero : MonoBehaviour
         PlayAnimation("interact", onComplete, -0.2f);
     }
 
-    public void GrabLadder()
+    public void HitLadder()
     {
         // Temp. Set the position to be directly under the light.
         var ladder = GameObject.Find("obj_ladder");
@@ -172,6 +177,23 @@ public class Hero : MonoBehaviour
 
         PlayAnimation("fall");
     }
+
+    /// <summary>
+    /// Returns false if he can't.
+    /// </summary>
+    /// <returns></returns>
+    public bool PickupLadder()
+    {
+        var ladder = GameObject.Find("obj_ladder");
+        if (ladder.GetComponent<Rigidbody>().useGravity)
+        {
+            PickupGameObject(ladder);
+            return true;
+        }
+
+        return false;
+    }
+
     /// <summary>
     /// Plays the interacting animation, then picks up the specified GO, then stands.
     /// </summary>

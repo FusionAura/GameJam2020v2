@@ -57,7 +57,7 @@ public class Take : InputAction
                                 if (controller.GotBroom == true)
                                 {
                                     controller.GotLadder = true;
-                                    controller.Player.GetComponent<Hero>().GrabLadder();
+                                    controller.Player.GetComponent<Hero>().HitLadder();
                                     controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
                                 }
                                 break;
