@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ChangeRoom
   m_EditorClassIdentifier: 
   requiredString: livingroom
-  RoomToChangeTo: {fileID: 11400000, guid: 5abba1249274e2d49a66bfd4f653dec5, type: 2}
+  RoomToChangeTo: {fileID: 11400000, guid: ab8bf55cf6982ee408597a12a746bb3b, type: 2}

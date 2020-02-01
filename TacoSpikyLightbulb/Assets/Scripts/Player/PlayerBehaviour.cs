@@ -7,7 +7,6 @@ public class PlayerBehaviour : MonoBehaviour
 {
     public bool alive = true, MoveToTarget = false, OnLadder = false, YourWinner = false;
 
-    public int Deathcounter = 0;
     public Transform Destination;
 
     [Range(1f,10)]

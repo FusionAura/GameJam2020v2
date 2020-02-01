@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     [HideInInspector]
@@ -23,7 +24,9 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public float seconds=0, minutes=0, hour=0, secondsMax=59,minutesMax=59,hoursMax=23;
     public string Timer;
-    public Text HUDTimer;
+    public Text HUDTimer,AttemptsCounter;
+    public static int Deathcounter;
+
 
     void Awake()
     {
@@ -34,6 +37,19 @@ public class GameController : MonoBehaviour
     {
         DisplayRoomText();
         DisplayLoggedtext();
+        AttemptsCounter.text = Deathcounter.ToString();
+    }
+
+    public void Die()
+    {     
+        
+        AttemptsCounter.text = Deathcounter.ToString();
+        Reset();
+    }
+    public void Reset()
+    {
+        Deathcounter += 1;
+        SceneManager.LoadScene(0);
     }
 
     void Update()

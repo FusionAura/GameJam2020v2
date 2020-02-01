@@ -8,7 +8,7 @@ public class Reset : InputAction
 {
     public override void RespondToInput(GameController controller, string[] seperatedInputWords)
     {
-        Debug.Log("Here");
-        SceneManager.LoadScene(0);
+        controller.Reset();
+        
     }
 }
