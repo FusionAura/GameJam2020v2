@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99e4dbb59e9be3f4fb8e229e7b046d74, type: 3}
+  m_Script: {fileID: 11500000, guid: 24dcdc9460b90444bb43495d3ca1f492, type: 3}
   m_Name: TestRoom1
   m_EditorClassIdentifier: 
-  description: Nothing Here.
-  roomname: testroom1
+  description: 
+  roomname: testroom
   exits:
   - keyString: livingroom
-    exitDescription: Return to the LivingRoom
-    valueRoom: {fileID: 11400000, guid: 9a0cf2dfb1fbcb74c8839df8d96bc042, type: 2}
+    exitDescription: Leaving Test room
+    valueRoom: {fileID: 11400000, guid: 9b5321483db16b548a86cde861eda7e0, type: 2}
   interactableObjectsInRoom: []
-  Node: {fileID: 0}

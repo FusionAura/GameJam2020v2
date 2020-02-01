@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48bac1762d7eb94fa6fb93101f130ae, type: 3}
   m_Name: Examine
   m_EditorClassIdentifier: 
-  keyword: []
+  keyword:
+  - examine

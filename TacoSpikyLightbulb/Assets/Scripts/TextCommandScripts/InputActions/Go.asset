@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b887851ef30dac94589d91b8d72b90d5, type: 3}
   m_Name: Go
   m_EditorClassIdentifier: 
-  keyword: []
+  keyword:
+  - go

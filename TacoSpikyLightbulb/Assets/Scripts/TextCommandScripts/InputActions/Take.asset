@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf39a03944f2d947848758b43b06bb3, type: 3}
   m_Name: Take
   m_EditorClassIdentifier: 
-  keyword: []
+  keyword:
+  - take
