@@ -22,10 +22,14 @@ public class GameController : MonoBehaviour
     public int historyVal = 1;
 
     [HideInInspector]
-    public float seconds=0, minutes=0, hour=0, secondsMax=59,minutesMax=59,hoursMax=23;
+    public static float seconds = 0, minutes = 0, hour = 0;
+    public float secondsMax=59,minutesMax=59,hoursMax=23;
     public string Timer;
     public Text HUDTimer,AttemptsCounter;
     public static int Deathcounter;
+    public int standardDrinks,Beers;
+
+    public bool GotGlove, GotBroom, GotLadder;
 
 
     void Awake()

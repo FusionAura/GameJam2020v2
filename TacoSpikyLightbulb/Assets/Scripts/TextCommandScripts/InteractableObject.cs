@@ -9,4 +9,5 @@ public class InteractableObject : ScriptableObject
     [TextArea]
     public string description = "Description in Room";
     public Interaction[] interactions;
+    public bool CustomAction;
 }

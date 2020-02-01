@@ -10,7 +10,29 @@ public class Use : InputAction
         if (seperatedInputWords.Length > 1)
         {
             Debug.Log("here");
-            controller.interactableItems.UseItem(seperatedInputWords);
+            //
+            switch(seperatedInputWords[1])
+            {
+                case "beer":
+                    {
+                        if (controller.Beers > 0)
+                        {
+                            controller.standardDrinks += 1;
+                            controller.Beers -= 1;
+                            controller.actionlog.Insert(0, "Drunk a bottle of beer." + "\n");
+                        }
+                        else
+                        {
+                            controller.interactableItems.UseItem(seperatedInputWords);
+                        }
+                        break;
+                    }
+                default:
+                    {
+                        controller.interactableItems.UseItem(seperatedInputWords);
+                        break;
+                    }
+            }
         }
         else
         {

@@ -19,12 +19,13 @@ MonoBehaviour:
     textResponse: 
     actionResponse: {fileID: 11400000, guid: e479129058f5d1b49bf704ad0cdbf011, type: 2}
   - InputAction: {fileID: 11400000, guid: 5bb04cd4c9e876445a9bccdcb48119f7, type: 2}
-    textResponse: 'took beer
+    textResponse: 'grabbed the heavy duty gloves
 
 '
     actionResponse: {fileID: 0}
   - InputAction: {fileID: 11400000, guid: 184088a123714b146a32fc19d26069f4, type: 2}
-    textResponse: 'Cold Beer
+    textResponse: 'These gloves should protect Dubalom''s hands.
 
 '
     actionResponse: {fileID: 0}
+  CustomAction: 0
