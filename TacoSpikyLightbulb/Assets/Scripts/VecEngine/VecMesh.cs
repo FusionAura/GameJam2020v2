@@ -45,6 +45,7 @@ public class VecMesh : MonoBehaviour
         Depth,      // Only apply masks from Meshes with a lower depth (in front of me) value (mildly expensive)
         None        // Do not get affected by any mask.
     }
+    public MaskedBy _MaskedBy = MaskedBy.All;
 
     public bool SelfMask { get; private set; } = true; // Should this Meshes masks affect its visible Edges?
 
@@ -163,41 +164,44 @@ public class VecMesh : MonoBehaviour
         // 1. Get a list of all meshes to check.
         List<VecMesh> meshesToCheck = new List<VecMesh>();
 
-        foreach(var mesh in allRegisteredMeshes)
-        {
-            // Mask self.
-            if (mesh == this) {
-                if (SelfMask) meshesToCheck.Add(mesh);
-                continue;
-            }
+        if (_MaskedBy != MaskedBy.None)
+        { 
+            foreach(var mesh in allRegisteredMeshes)
+            {
+                // Mask self.
+                if (mesh == this) {
+                    if (SelfMask) meshesToCheck.Add(mesh);
+                    continue;
+                }
 
-            // If the current mesh's minDepth is greater than this meshes maxDepth, then it is behind it.
-            // Then, stop iterating (as allRegisteredMeshes have been sorted by min depth).
-            if (mesh.BB.MinCorner.z > this.BB.MaxCorner.z) {
-                break;
-            }
-            // Store a reference to all meshes that are BB intersecting and in front of this one.
-            if (mesh.BB.CheckColBehind(this.BB)) {
-                meshesToCheck.Add(mesh);
-            }
-                /*// Determine how many masks each VecVert is behind.
-                foreach (var v in verts)
-                {
-                    foreach (var m in masks)
+                // If the current mesh's minDepth is greater than this meshes maxDepth, then it is behind it.
+                // Then, stop iterating (as allRegisteredMeshes have been sorted by min depth).
+                if (mesh.BB.MinCorner.z > this.BB.MaxCorner.z) {
+                    break;
+                }
+                // Store a reference to all meshes that are BB intersecting and in front of this one.
+                if (mesh.BB.CheckColBehind(this.BB)) {
+                    meshesToCheck.Add(mesh);
+                }
+                    /*// Determine how many masks each VecVert is behind.
+                    foreach (var v in verts)
                     {
-                        if (!v.IsVisible) continue;
+                        foreach (var m in masks)
+                        {
+                            if (!v.IsVisible) continue;
 
-                        if (v.IsVertBehindMask(m))
-                            v.IncrementMaskNestCount();
-                    }
-                }*/
+                            if (v.IsVertBehindMask(m))
+                                v.IncrementMaskNestCount();
+                        }
+                    }*/
 
-            // Easy check. Ignore self.
-            //if (mesh == this) continue;
+                // Easy check. Ignore self.
+                //if (mesh == this) continue;
+            }
         }
 
         // 2. Check for edge intersections against each mask in each of the meshesToCheck.
-        foreach(var e in EdgesToMask)
+        foreach (var e in EdgesToMask)
         {
             foreach(var m in meshesToCheck) {
                 e.CalcAndStoreIntersections(m, m == this);
@@ -229,7 +233,7 @@ public class VecMesh : MonoBehaviour
             e.CreateExplosionGO(this.transform.parent);
         }
 
-        Destroy(this);
+        Destroy(this.gameObject);
         Debug.Log("VecMesh \"" + this.name + "\" exploded.");
     }
 

@@ -214,6 +214,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &546846027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 546846028}
+  - component: {fileID: 546846029}
+  m_Layer: 0
+  m_Name: Cube (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &546846028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546846027}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -1.671148, y: 6.2421875, z: -2.1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children:
+  - {fileID: 809249460}
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &546846029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546846027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237ab19e1899fec45b27c4ad32a8ee7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VecMeshAsset: {fileID: 4900000, guid: cc51ed61a55f7e440b068dbc541c020a, type: 3}
+  MaskedBy: 0
 --- !u!1001 &697641562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -471,6 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VecMeshAsset: {fileID: 4900000, guid: eacde1ebb8c886748acd031cf952e441, type: 3}
+  MaskedBy: 0
 --- !u!1 &764886826
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +611,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &809249456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 809249460}
+  - component: {fileID: 809249457}
+  m_Layer: 0
+  m_Name: Cube (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &809249457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809249456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237ab19e1899fec45b27c4ad32a8ee7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VecMeshAsset: {fileID: 4900000, guid: 7b8b07df0627e0d488dbc03799b55001, type: 3}
+  MaskedBy: 2
+--- !u!4 &809249460
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809249456}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.08, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 546846028}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &846824058
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +716,7 @@ GameObject:
   - component: {fileID: 1001271424}
   m_Layer: 0
   m_Name: obj_lightbulb
-  m_TagString: Untagged
+  m_TagString: danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -642,6 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VecMeshAsset: {fileID: 4900000, guid: c5027edb1d2005a468dc9724e06a10c3, type: 3}
+  MaskedBy: 0
 --- !u!135 &1001271424
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -878,6 +971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VecMeshAsset: {fileID: 4900000, guid: 624e3d1fd4ae8df4cad991ff5a61edb1, type: 3}
+  MaskedBy: 0
 --- !u!4 &1201491679 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6068634767465851268, guid: 75df3e2f22ee56b46ac8adbdf9975738,
@@ -1171,6 +1265,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1596756934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596756936}
+  - component: {fileID: 1596756935}
+  m_Layer: 0
+  m_Name: obj_broom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1596756935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596756934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237ab19e1899fec45b27c4ad32a8ee7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VecMeshAsset: {fileID: 4900000, guid: b0fa3340fe5b64043aa06c2ad09b78a0, type: 3}
+  MaskedBy: 0
+--- !u!4 &1596756936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596756934}
+  m_LocalRotation: {x: 0.12980933, y: -0.4660373, z: 0.06934115, w: 0.87243944}
+  m_LocalPosition: {x: -16.76, y: 0.08, z: 13.796875}
+  m_LocalScale: {x: 1.6714, y: 1.6714, z: 1.6714}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 16.926, y: -56.22, z: 0}
 --- !u!1 &1626143903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,6 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VecMeshAsset: {fileID: 4900000, guid: 0011369110db4d74a932373c6c6c0e2a, type: 3}
+  MaskedBy: 0
 --- !u!23 &1626143906
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1257,13 +1397,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626143903}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.4, y: 0, z: 15.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.11229472, y: -0, z: -0, w: 0.993675}
+  m_LocalPosition: {x: 3.4, y: 0.08, z: 13.69}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12.895, y: 0, z: 0}
 --- !u!1 &1936241588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,6 +1434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VecMeshAsset: {fileID: 4900000, guid: 74d195c2738f06340baf674292ad6b93, type: 3}
+  MaskedBy: 0
 --- !u!4 &1936241590
 Transform:
   m_ObjectHideFlags: 0
@@ -1342,6 +1483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VecMeshAsset: {fileID: 4900000, guid: 4736a242f8af3014aa0bb1df8ca53987, type: 3}
+  MaskedBy: 0
 --- !u!65 &2082720040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1446,6 +1588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VecMeshAsset: {fileID: 4900000, guid: 319ed7b86660a324f9cb0b51b03da322, type: 3}
+  MaskedBy: 0
 --- !u!4 &2094372734
 Transform:
   m_ObjectHideFlags: 0
@@ -1480,7 +1623,7 @@ PrefabInstance:
     - target: {fileID: 9197011980382861144, guid: 75df3e2f22ee56b46ac8adbdf9975738,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.42
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 9197011980382861144, guid: 75df3e2f22ee56b46ac8adbdf9975738,
         type: 3}
@@ -1526,6 +1669,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197011980382861145, guid: 75df3e2f22ee56b46ac8adbdf9975738,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197011980382861145, guid: 75df3e2f22ee56b46ac8adbdf9975738,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 9197011981405758756, guid: 75df3e2f22ee56b46ac8adbdf9975738,
         type: 3}

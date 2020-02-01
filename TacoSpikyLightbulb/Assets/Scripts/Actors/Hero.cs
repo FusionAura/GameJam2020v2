@@ -58,10 +58,29 @@ public class Hero : MonoBehaviour
             Explode();
         }
 
-        // Pickup GameObject
+        // Pickup Beer
         if (Input.GetKeyDown(KeyCode.C))
         {
-            PickupGameObject(GameObject.FindGameObjectWithTag("item"));
+            PickupGameObject(GameObject.Find("obj_beer"));
+        }
+
+        // Pickup Broom
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            PickupGameObject(GameObject.Find("obj_broom"));
+        }
+
+        // Swing Broom
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // Temp. Set the position to be directly under the light.
+            var lightbulb = GameObject.Find("obj_lightbulb");
+            Vector3 underTheLightbulb = new Vector3(lightbulb.transform.position.x, transform.position.y, lightbulb.transform.position.z);
+            transform.position = underTheLightbulb;
+
+            PlayAnimation("hit-up", () => {
+                lightbulb.GetComponent<Rigidbody>().useGravity = true;
+            }, -0.2f);
         }
 
         for (var i = 0; i < timeouts.Count; i++)
@@ -71,6 +90,15 @@ public class Hero : MonoBehaviour
                 timeouts.RemoveAt(i);
                 i--;
             }
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "danger")
+        {
+            Explode();
+            Destroy(GetComponent<BoxCollider>());
         }
     }
 
@@ -131,7 +159,7 @@ public class Hero : MonoBehaviour
     /// <param name="animationName"></param>
     /// <param name="onComplete"></param>
     /// <param name="timeMod"></param>
-    public void PlayAnimation(string animationName, System.Action onComplete, float timeMod = 0f)
+    public void PlayAnimation(string animationName, System.Action onComplete, float timeMod = -0.2f)
     {
         PlayAnimation(animationName);
 
