@@ -112,6 +112,7 @@ public class Hero : MonoBehaviour
 
             PlayAnimation("hit-up", () => {
                 ladder.GetComponent<Rigidbody>().useGravity = true;
+                PlayAnimation("stand");
             }, -0.2f);
         }
 
@@ -125,6 +126,12 @@ public class Hero : MonoBehaviour
                     fridgeDoor.transform.localRotation = Quaternion.Euler(-90f, p * 135f, 0f);
                 }, 1f);
             });
+        }
+
+        // Drop current item.
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            DropCurrentGameObject();
         }
 
         for (var i = 0; i < timeouts.Count; i++)
@@ -176,8 +183,31 @@ public class Hero : MonoBehaviour
         });
     }
 
+    public void DropCurrentGameObject()
+    {
+        if (item)
+        {
+            item.transform.parent = null;
+            var rb = item.GetComponent<Rigidbody>();
+            if (rb)
+            {
+                rb.useGravity = true;
+                rb.detectCollisions = true;
+            }
+
+            item = null;
+        }
+    }
+
     private void ParentItemToMe(GameObject go)
     {
+        var rb = go.GetComponent<Rigidbody>();
+        if (rb)
+        {
+            rb.useGravity = false;
+            rb.detectCollisions = false;
+        }
+
         go.transform.parent = ItemHoldParent.transform;
         go.transform.localPosition = Vector3.zero;
         go.transform.localRotation = Quaternion.identity;
