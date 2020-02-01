@@ -18,8 +18,19 @@ MonoBehaviour:
   - keyString: left
     exitDescription: 
     valueRoom: {fileID: 11400000, guid: ab8bf55cf6982ee408597a12a746bb3b, type: 2}
+  - keyString: up
+    exitDescription: 
+    valueRoom: {fileID: 11400000, guid: 73329e09613ec2646ae3ff48e5e96ca6, type: 2}
   - keyString: right
     exitDescription: 
-    valueRoom: {fileID: 11400000, guid: 4ce8dacf6ae041b43acbb325c5124360, type: 2}
-  interactableObjectsInRoom:
-  - {fileID: 0}
+    valueRoom: {fileID: 11400000, guid: 8512031ef7e97084583a2e977e7f47bf, type: 2}
+  - keyString: around
+    exitDescription: 
+    valueRoom: {fileID: 11400000, guid: 73329e09613ec2646ae3ff48e5e96ca6, type: 2}
+  - keyString: forward
+    exitDescription: 
+    valueRoom: {fileID: 11400000, guid: 73329e09613ec2646ae3ff48e5e96ca6, type: 2}
+  - keyString: forwards
+    exitDescription: 
+    valueRoom: {fileID: 11400000, guid: 73329e09613ec2646ae3ff48e5e96ca6, type: 2}
+  interactableObjectsInRoom: []

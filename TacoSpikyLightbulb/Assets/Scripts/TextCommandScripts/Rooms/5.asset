@@ -15,7 +15,16 @@ MonoBehaviour:
   description: 
   roomname: 
   exits:
+  - keyString: around
+    exitDescription: 
+    valueRoom: {fileID: 11400000, guid: b2dd50b23dbfed1488a984f998ee81dc, type: 2}
   - keyString: left
+    exitDescription: 
+    valueRoom: {fileID: 11400000, guid: b2dd50b23dbfed1488a984f998ee81dc, type: 2}
+  - keyString: up
+    exitDescription: 
+    valueRoom: {fileID: 11400000, guid: b2dd50b23dbfed1488a984f998ee81dc, type: 2}
+  - keyString: forward
     exitDescription: 
     valueRoom: {fileID: 11400000, guid: b2dd50b23dbfed1488a984f998ee81dc, type: 2}
   interactableObjectsInRoom: []

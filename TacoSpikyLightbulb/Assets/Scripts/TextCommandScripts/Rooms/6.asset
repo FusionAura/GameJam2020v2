@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dcdc9460b90444bb43495d3ca1f492, type: 3}
   m_Name: 6
   m_EditorClassIdentifier: 
-  description: 
+  description: Oh hey, there was a landmine there.
   roomname: 
   exits:
   - keyString: left
