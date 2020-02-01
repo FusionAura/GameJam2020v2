@@ -89,50 +89,31 @@ public class Hero : MonoBehaviour
         // Pickup Broom
         if (Input.GetKeyDown(KeyCode.D))
         {
-            PickupGameObject(GameObject.Find("obj_broom"));
+            
         }
 
         // Swing Broom at bulb
         if (Input.GetKeyDown(KeyCode.E))
         {
-            // Temp. Set the position to be directly under the light.
-            var lightbulb = GameObject.Find("obj_lightbulb");
-            Vector3 underTheLightbulb = new Vector3(lightbulb.transform.position.x, transform.position.y, lightbulb.transform.position.z);
-            transform.position = underTheLightbulb;
 
-            PlayAnimation("hit-up", () => {
-                lightbulb.GetComponent<Rigidbody>().useGravity = true;
-            }, -0.2f);
         }*/
 
         // Swing Broom at ladder
         if (Input.GetKeyDown(KeyCode.F))
         {
-            // Temp. Set the position to be directly under the light.
-            var ladder = GameObject.Find("obj_ladder");
-
-            PlayAnimation("hit-up", () => {
-                ladder.GetComponent<Rigidbody>().useGravity = true;
-                PlayAnimation("stand");
-            }, -0.2f);
+            Fall();
         }
 
         // Open fridge
         if (Input.GetKeyDown(KeyCode.G))
         {
-            Interact(() => {
-                var fridgeDoor = GameObject.Find("door");
 
-                AddTimeoutOnStep((p) => {
-                    fridgeDoor.transform.localRotation = Quaternion.Euler(-90f, p * 135f, 0f);
-                }, 1f);
-            });
         }
 
         // Drop current item.
         if (Input.GetKeyDown(KeyCode.H))
         {
-            DropCurrentGameObject();
+           // DropCurrentGameObject();
         }
 
         for (var i = 0; i < timeouts.Count; i++)
@@ -173,6 +154,24 @@ public class Hero : MonoBehaviour
         PlayAnimation("interact", onComplete, -0.2f);
     }
 
+    public void GrabLadder()
+    {
+        // Temp. Set the position to be directly under the light.
+        var ladder = GameObject.Find("obj_ladder");
+
+        PlayAnimation("hit-up", () => {
+            ladder.GetComponent<Rigidbody>().useGravity = true;
+            PlayAnimation("stand");
+        }, -0.2f);
+    }
+
+    public void Fall()
+    {
+        // Temp. Set the position to be directly under the light.
+        var ladder = GameObject.Find("obj_ladder");
+
+        PlayAnimation("fall");
+    }
     /// <summary>
     /// Plays the interacting animation, then picks up the specified GO, then stands.
     /// </summary>
@@ -223,6 +222,7 @@ public class Hero : MonoBehaviour
     /// </summary>
     public void Explode(float force = 0f)
     {
+        GetComponent<PlayerBehaviour>().alive = false;
         var vms = GetComponentsInChildren<VecModel>();
         foreach (var e in vms)
             e.Explode(force);

@@ -85,7 +85,7 @@ public class InteractableItems : MonoBehaviour
         }
         else
         {
-            controller.LogStringWithReturn("There is no "+ noun + "here to take. wadiyatalkinabeet ?");
+            controller.LogStringWithReturn("There is no "+ noun + " here to take.");
             return null;
             
         }
@@ -99,6 +99,7 @@ public class InteractableItems : MonoBehaviour
         {
             if (useDictionary.ContainsKey(nounToUse))
             {
+
                 bool actionResult = useDictionary[nounToUse].DoActionResponse(controller);
                 if (!actionResult)
                 {
