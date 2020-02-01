@@ -27,6 +27,8 @@ public class VecMesh : MonoBehaviour
 
     public VecBoundingBox BB { get; private set; }
 
+    private bool IsOnScreen = true;
+
     public bool HasMasks { get; private set; } = true;
 
     public bool Hidden = true; // Don't draw VecMeshes on the first frame they exist.
@@ -142,6 +144,22 @@ public class VecMesh : MonoBehaviour
             v.LateUpdate();
             //if (v.IsVisible) VertsToMask.Add(v); // Nuts. Doesn't work (since Edges are calculated after this). I don't really want another loop for now.
         }
+
+        BB.Recalculate(verts);
+
+        // Check if onscreen (and don't update or render anything if not).
+        IsOnScreen = true;
+        if (BB.MinCorner.x > Screen.width ||
+            BB.MaxCorner.x < 0f ||
+            BB.MinCorner.y > Screen.height ||
+            BB.MaxCorner.y < 0f)
+        {
+            IsOnScreen = false;
+            Hidden = true;
+        }
+
+        if (!IsOnScreen) return;
+
         foreach (var m in masks) {
             m.LateUpdate();
             if (!m.Culled) MasksToApply.Add(m); // These masks will be used to mask other visible edges.
@@ -152,7 +170,7 @@ public class VecMesh : MonoBehaviour
         }
 
         //BB.Recalculate(VertsToMask); // Note: BB encases all VISIBLE Edges (everything that needs to be masked).
-        BB.Recalculate(verts);
+        
     }
 
     /// <summary>
@@ -161,6 +179,8 @@ public class VecMesh : MonoBehaviour
     /// <param name="allRegisteredMeshes"></param>
     public void PostCalc(ICollection<VecMesh> allRegisteredMeshes)
     {
+        if (!IsOnScreen) return;
+
         // 1. Get a list of all meshes to check.
         List<VecMesh> meshesToCheck = new List<VecMesh>();
 
@@ -225,12 +245,12 @@ public class VecMesh : MonoBehaviour
     /// <summary>
     /// When called, will destroy this Mesh and explode its VecLines outwards.
     /// </summary>
-    public void Explode()
+    public void Explode(float force = 0f)
     {
         // Create explosions.
         foreach (var e in edges)
         {
-            e.CreateExplosionGO(this.transform.parent);
+            e.CreateExplosionGO(this.transform.position, force);
         }
 
         Destroy(this.gameObject);
@@ -258,6 +278,8 @@ public class VecMesh : MonoBehaviour
             Hidden = false;
             return;
         }
+
+        if (!IsOnScreen) return;
 
         useGUILayout = false; // Apparently makes this run a lot faster.
 
