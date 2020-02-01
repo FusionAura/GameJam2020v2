@@ -116,7 +116,7 @@ public class GameController : MonoBehaviour
 
         UnPackRoom();
         string JoinedInteractionDescription = string.Join("\n", InteractionDescriptionInRoom.ToArray());
-        string combinedText = roomNavigation.CurrentRoom.description + "\n" + JoinedInteractionDescription;
+        string combinedText = roomNavigation.CurrentRoom.description + JoinedInteractionDescription;
         LogStringWithReturn(combinedText);
     }
 

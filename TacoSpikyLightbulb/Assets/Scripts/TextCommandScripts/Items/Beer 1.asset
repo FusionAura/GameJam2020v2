@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bfaeca58ece5947aa75b4c6fdd4834, type: 3}
+  m_Name: Beer 1
+  m_EditorClassIdentifier: 
+  noun: Gloves
+  description: Heavy Duty Gloves.
+  interactions:
+  - InputAction: {fileID: 11400000, guid: 3ae88fa273da3e94287683853ac553a6, type: 2}
+    textResponse: 
+    actionResponse: {fileID: 11400000, guid: e479129058f5d1b49bf704ad0cdbf011, type: 2}
+  - InputAction: {fileID: 11400000, guid: 5bb04cd4c9e876445a9bccdcb48119f7, type: 2}
+    textResponse: 'took beer
+
+'
+    actionResponse: {fileID: 0}
+  - InputAction: {fileID: 11400000, guid: 184088a123714b146a32fc19d26069f4, type: 2}
+    textResponse: 'Cold Beer
+
+'
+    actionResponse: {fileID: 0}

@@ -405,6 +405,12 @@ PrefabInstance:
       propertyPath: RoomNodes.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4482999889301251353, guid: f2dd021c11b36a54492d6966ba60d522,
+        type: 3}
+      propertyPath: CurrentRoom
+      value: 
+      objectReference: {fileID: 11400000, guid: ab8bf55cf6982ee408597a12a746bb3b,
+        type: 2}
     - target: {fileID: 4482999889301251354, guid: f2dd021c11b36a54492d6966ba60d522,
         type: 3}
       propertyPath: inputfield
