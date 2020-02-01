@@ -20,6 +20,11 @@ public class GameController : MonoBehaviour
     public List<string> actionlog = new List<string>();
     public int historyVal = 1;
 
+    [HideInInspector]
+    public float seconds=0, minutes=0, hour=0, secondsMax=59,minutesMax=59,hoursMax=23;
+    public string Timer;
+    public Text HUDTimer;
+
     void Awake()
     {
         roomNavigation = GetComponent<RoomNavigation>();
@@ -33,6 +38,41 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        seconds += 1.5f * Time.deltaTime;
+        if (seconds > secondsMax)
+        {
+            seconds = 0;
+            minutes += 1;
+        }
+        if (minutes > minutesMax)
+        {
+            minutes = 0;
+            hour += 1;
+        }
+        if (hour > hoursMax)
+        {
+            hour = 0;
+        }
+        string sec = seconds.ToString();
+        
+        string min = minutes.ToString();
+        string hr = hour.ToString();
+        if (seconds <10)
+        {
+            sec = "0"+ seconds.ToString();
+        }
+        if (minutes < 10)
+        {
+            min = "0"+minutes.ToString();
+        }
+        if (hour < 10)
+        {
+            hr = "0" + hour.ToString();
+        }
+        Timer = hr +":" + min + ":"+ sec;
+        HUDTimer.GetComponent<Text>().text = Timer;
+
+
         if (actionlog.Count > 0)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow) && historyVal < actionlog.Count-1)

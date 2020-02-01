@@ -295,6 +295,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1005144687764629956, guid: 4aa14c344f6eb2843841a97a2e000654,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005144688243546252, guid: 4aa14c344f6eb2843841a97a2e000654,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aa14c344f6eb2843841a97a2e000654, type: 3}
 --- !u!224 &7557287678696939726 stripped
@@ -324,6 +334,18 @@ MonoBehaviour:
 --- !u!114 &7557287680704874926 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1005144689007703159, guid: 4aa14c344f6eb2843841a97a2e000654,
+    type: 3}
+  m_PrefabInstance: {fileID: 7282915287521115609}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5932763367772660116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3983279971018677325, guid: 4aa14c344f6eb2843841a97a2e000654,
     type: 3}
   m_PrefabInstance: {fileID: 7282915287521115609}
   m_PrefabAsset: {fileID: 0}
@@ -431,6 +453,11 @@ PrefabInstance:
       propertyPath: inputfield
       value: 
       objectReference: {fileID: 7557287678965134116}
+    - target: {fileID: 4482999889301251355, guid: f2dd021c11b36a54492d6966ba60d522,
+        type: 3}
+      propertyPath: HUDTimer
+      value: 
+      objectReference: {fileID: 5932763367772660116}
     - target: {fileID: 4482999889301251367, guid: f2dd021c11b36a54492d6966ba60d522,
         type: 3}
       propertyPath: m_Name

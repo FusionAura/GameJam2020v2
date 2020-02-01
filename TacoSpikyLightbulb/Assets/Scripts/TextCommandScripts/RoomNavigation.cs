@@ -41,7 +41,7 @@ public class RoomNavigation : MonoBehaviour
         if (exitDictionary.ContainsKey(DirectionNoun))
         {
             CurrentRoom = exitDictionary[DirectionNoun];
-            controller.LogStringWithReturn("You head off to " + DirectionNoun);
+            controller.LogStringWithReturn("Dubalom heads off to " + DirectionNoun);
             controller.DisplayRoomText();
 
             Destination = RoomLocations[CurrentRoom].gameObject;
