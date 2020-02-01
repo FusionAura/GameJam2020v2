@@ -24,6 +24,9 @@ ModelImporter:
   - first:
       74: 6786142354665394581
     second: stand
+  - first:
+      74: 8288433060020798102
+    second: stand_001
   externalObjects: {}
   materials:
     materialImportMode: 1

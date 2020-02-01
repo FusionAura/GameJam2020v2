@@ -13,11 +13,19 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            var vms = GetComponentsInChildren<VecModel>();
-            foreach (var e in vms)
-                e.Explode();
-        }
+
+    }
+    
+    public void Explode()
+    {
+        var vms = GetComponentsInChildren<VecModel>();
+        foreach (var e in vms)
+            e.Explode();
+    }
+
+    public void PlayAnimation(string animationName)
+    {
+        var animation = GetComponentInChildren<Animation>();
+        animation.CrossFade(animationName, 0.2f);
     }
 }

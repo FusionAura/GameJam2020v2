@@ -480,6 +480,7 @@ public class VecEdge
 
         go.transform.localScale = new Vector3(1f, 1f, _vec3D.magnitude);
         go.transform.parent = parent;
+        go.transform.parent = null;
 
         GameObject go2 = new GameObject("VecMeshGO");
         go2.transform.parent = go.transform;
