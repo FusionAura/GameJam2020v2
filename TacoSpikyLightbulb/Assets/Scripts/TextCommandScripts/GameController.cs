@@ -32,22 +32,23 @@ public class GameController : MonoBehaviour
     {
         roomNavigation = GetComponent<RoomNavigation>();
         interactableItems = GetComponent<InteractableItems>();
-        Deathcounter = 0;
     }
     private void Start()
     {
         DisplayRoomText();
         DisplayLoggedtext();
+        AttemptsCounter.text = Deathcounter.ToString();
     }
 
     public void Die()
     {     
-        Deathcounter += 1;
+        
         AttemptsCounter.text = Deathcounter.ToString();
         Reset();
     }
     public void Reset()
     {
+        Deathcounter += 1;
         SceneManager.LoadScene(0);
     }
 
