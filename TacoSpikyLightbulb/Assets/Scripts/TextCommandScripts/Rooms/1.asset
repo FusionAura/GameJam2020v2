@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dcdc9460b90444bb43495d3ca1f492, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
-  description: Living Room is lame
-  roomname: 1
+  description: 
+  roomname: 
   exits:
   - keyString: right
-    exitDescription: Dubalom moved to the right
+    exitDescription: 
     valueRoom: {fileID: 11400000, guid: 5abba1249274e2d49a66bfd4f653dec5, type: 2}
   interactableObjectsInRoom:
   - {fileID: 11400000, guid: ea9c3ccfc75f184498d2fc577c789a47, type: 2}

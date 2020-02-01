@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   description: 
-  roomname: 2
+  roomname: 
   exits:
   - keyString: left
-    exitDescription: Dubalom moved to the left
+    exitDescription: 
     valueRoom: {fileID: 11400000, guid: 9b5321483db16b548a86cde861eda7e0, type: 2}
   - keyString: right
-    exitDescription: Dubalom moved to the right
+    exitDescription: 
     valueRoom: {fileID: 11400000, guid: ab8bf55cf6982ee408597a12a746bb3b, type: 2}
   interactableObjectsInRoom: []
