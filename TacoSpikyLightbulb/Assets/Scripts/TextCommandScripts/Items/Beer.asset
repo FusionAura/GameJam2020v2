@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24bfaeca58ece5947aa75b4c6fdd4834, type: 3}
-  m_Name: beer
+  m_Name: Beer
   m_EditorClassIdentifier: 
   noun: beer
   description: Description in Room
