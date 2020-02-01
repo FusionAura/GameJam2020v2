@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24dcdc9460b90444bb43495d3ca1f492, type: 3}
-  m_Name: LivingRoom
+  m_Name: 1
   m_EditorClassIdentifier: 
-  description: Living Room is lame
-  roomname: livingroom
+  description: 
+  roomname: 
   exits:
-  - keyString: test
-    exitDescription: moving to test room
-    valueRoom: {fileID: 11400000, guid: ab8bf55cf6982ee408597a12a746bb3b, type: 2}
+  - keyString: right
+    exitDescription: 
+    valueRoom: {fileID: 11400000, guid: 5abba1249274e2d49a66bfd4f653dec5, type: 2}
   interactableObjectsInRoom:
   - {fileID: 11400000, guid: ea9c3ccfc75f184498d2fc577c789a47, type: 2}

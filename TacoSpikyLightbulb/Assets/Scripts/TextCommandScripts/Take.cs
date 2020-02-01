@@ -6,10 +6,19 @@ public class Take : InputAction
 {
     public override void RespondToInput(GameController controller, string[] seperatedInputWords)
     {
-        Dictionary<string, string> takeDictionary = controller.interactableItems.Take(seperatedInputWords);
-        if (takeDictionary != null)
+        if (seperatedInputWords.Length > 1)
         {
-            controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+
+            Dictionary<string, string> takeDictionary = controller.interactableItems.Take(seperatedInputWords);
+            if (takeDictionary != null)
+            {
+                controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+            }
         }
+        else
+        {
+            controller.actionlog.Insert(0, seperatedInputWords[0] + " " + "what?" + "\n");
+        }
+
     }
 }

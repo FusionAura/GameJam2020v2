@@ -9,18 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48bac1762d7eb94fa6fb93101f130ae, type: 3}
-  m_Name: Examine
+  m_Script: {fileID: 11500000, guid: 24dcdc9460b90444bb43495d3ca1f492, type: 3}
+  m_Name: 5
   m_EditorClassIdentifier: 
-  keyword:
-  - examine
-  - observe
-  - look
-  - check
-  - inspect
-  - view
-  - investigate
-  - eye
-  - probe
-  - study
-  - review
+  description: 
+  roomname: 
+  exits:
+  - keyString: left
+    exitDescription: 
+    valueRoom: {fileID: 11400000, guid: b2dd50b23dbfed1488a984f998ee81dc, type: 2}
+  interactableObjectsInRoom: []
