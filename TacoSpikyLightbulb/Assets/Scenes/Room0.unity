@@ -420,6 +420,11 @@ PrefabInstance:
       propertyPath: displayText
       value: 
       objectReference: {fileID: 82518277}
+    - target: {fileID: 4482999889301251355, guid: f2dd021c11b36a54492d6966ba60d522,
+        type: 3}
+      propertyPath: inputfield
+      value: 
+      objectReference: {fileID: 342671074}
     - target: {fileID: 4482999889301251367, guid: f2dd021c11b36a54492d6966ba60d522,
         type: 3}
       propertyPath: m_Name

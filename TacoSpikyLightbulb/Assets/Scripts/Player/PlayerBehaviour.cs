@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    public bool alive = true, MoveToTarget = false;
+    public bool alive = true, MoveToTarget = false, OnLadder = false, YourWinner = false;
 
     public int Deathcounter = 0;
     public Transform Destination;
@@ -19,7 +19,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (MoveToTarget == true)
         {
-            Debug.Log("here");
+
             float step = walkSpeed * Time.deltaTime; // calculate distance to move
             transform.position = Vector3.MoveTowards(transform.position, Destination.position, step);
             if (Vector3.Distance(transform.position, Destination.position) < 0.001f)

@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     [HideInInspector]
     public RoomNavigation roomNavigation;
+    public InputField inputfield;
     public Text displayText;
     public GameObject Player;
     [HideInInspector]
@@ -16,7 +17,8 @@ public class GameController : MonoBehaviour
 
     public InputAction[] inputActions;
 
-    List<string> actionlog = new List<string>();
+    public List<string> actionlog = new List<string>();
+    public int historyVal = 1;
 
     void Awake()
     {
@@ -28,6 +30,35 @@ public class GameController : MonoBehaviour
         DisplayRoomText();
         DisplayLoggedtext();
     }
+
+    void Update()
+    {
+        if (actionlog.Count > 0)
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow) && historyVal < actionlog.Count-1)
+            {
+                historyVal += 1;
+                string previous = actionlog[historyVal];
+                
+
+                displayText.text = previous;
+                inputfield.ActivateInputField();
+                inputfield.text = null;
+                
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow)&& historyVal > 0)
+            {
+                historyVal -= 1;
+                string previous = actionlog[historyVal];
+                
+
+                displayText.text = previous;
+                inputfield.ActivateInputField();
+                inputfield.text = null;
+            }
+        }
+    }
+
     private void UnPackRoom()
     {
         roomNavigation.UnPackExitsInRoom();
@@ -98,4 +129,5 @@ public class GameController : MonoBehaviour
     {
         actionlog.Insert(0,_stringToAdd + "\n");
     }
+
 }
