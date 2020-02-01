@@ -266,7 +266,6 @@ MonoBehaviour:
   MoveToTarget: 0
   OnLadder: 0
   YourWinner: 0
-  Deathcounter: 0
   Destination: {fileID: 0}
   walkSpeed: 10
 --- !u!65 &9197011980382861145

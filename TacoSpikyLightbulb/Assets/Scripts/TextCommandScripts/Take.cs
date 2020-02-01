@@ -6,58 +6,75 @@ public class Take : InputAction
 {
     public override void RespondToInput(GameController controller, string[] seperatedInputWords)
     {
-        if (seperatedInputWords.Length > 1)
+        if (controller.Player.GetComponent<PlayerBehaviour>().alive == true)
         {
-            Dictionary<string, string> takeDictionary = controller.interactableItems.Take(seperatedInputWords);
-            if (takeDictionary != null)
+            if (seperatedInputWords.Length > 1)
             {
-                switch (seperatedInputWords[1])
+                Dictionary<string, string> takeDictionary = controller.interactableItems.Take(seperatedInputWords);
+                if (takeDictionary != null)
                 {
-                    case "beer":
-                        {
-                            if (controller.Beers > 0)
+                    switch (seperatedInputWords[1])
+                    {
+                        case "beer":
                             {
-                                controller.Beers += 10;
-                                controller.actionlog.Insert(0, "Found 10 Bottles of Beer." + "\n");
+                                if (controller.Beers > 0)
+                                {
+                                    controller.Beers += 10;
+                                    controller.actionlog.Insert(0, "Found 10 Bottles of Beer." + "\n");
+
+                                    controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+
+                                    controller.Player.GetComponent<Hero>().Interact(() =>
+                                    {
+                                        var fridgeDoor = GameObject.Find("door");
+
+                                        controller.Player.GetComponent<Hero>().AddTimeoutOnStep((p) =>
+                                        {
+                                            fridgeDoor.transform.localRotation = Quaternion.Euler(-90f, p * 135f, 0f);
+                                        }, 1f);
+                                    });
+                                }
+                                break;
+                            }
+                        case "broom":
+                            {
+                                controller.GotBroom = true;
+                                controller.Player.GetComponent<Hero>().PickupGameObject(GameObject.Find("obj_broom"));
+                                controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+
+                                break;
+                            }
+                        case "gloves":
+                            {
+                                controller.GotGlove = true;
 
                                 controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+
+                                break;
                             }
-                            break;
-                        }
-                    case "broom":
-                        {
-                            controller.GotBroom = true;
-                            controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
-                            
-                            break;
-                        }
-                    case "gloves":
-                        {
-                            controller.GotGlove = true;
-                            controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+                        case "ladder":
+                            {
+                                if (controller.GotBroom == true)
+                                {
+                                    controller.GotLadder = true;
+                                    controller.Player.GetComponent<Hero>().GrabLadder();
+                                    controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+                                }
+                                break;
+                            }
+                        default:
+                            {
+                                controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+                                break;
+                            }
+                    }
 
-                            break;
-                        }
-                    case "ladder":
-                        {
-                            controller.GotLadder = true;
-                            controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
-
-                            break;
-                        }
-                    default:
-                        {
-                            controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
-                            break;
-                        }
                 }
-
+            }
+            else
+            {
+                controller.actionlog.Insert(0, seperatedInputWords[0] + " " + "what?" + "\n");
             }
         }
-        else
-        {
-            controller.actionlog.Insert(0, seperatedInputWords[0] + " " + "what?" + "\n");
-        }
-
     }
 }

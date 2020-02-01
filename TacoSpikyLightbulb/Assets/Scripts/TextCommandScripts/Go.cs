@@ -7,13 +7,16 @@ public class Go : InputAction
 {
     public override void RespondToInput(GameController controller, string[] seperatedInputWords)
     {
-        if (seperatedInputWords.Length > 1)
+        if (controller.Player.GetComponent<PlayerBehaviour>().alive == true)
         {
-            controller.roomNavigation.AttemptToChangeRooms(seperatedInputWords[1],seperatedInputWords[0]);
-        }
-        else
-        {
-            controller.actionlog.Insert(0, seperatedInputWords[0] +" "+ "where?"+ "\n");
+            if (seperatedInputWords.Length > 1)
+            {
+                controller.roomNavigation.AttemptToChangeRooms(seperatedInputWords[1], seperatedInputWords[0]);
+            }
+            else
+            {
+                controller.actionlog.Insert(0, seperatedInputWords[0] + " " + "where?" + "\n");
+            }
         }
     }
 }

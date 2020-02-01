@@ -16,10 +16,10 @@ MonoBehaviour:
   description: 'A long Broom. '
   interactions:
   - InputAction: {fileID: 11400000, guid: 3ae88fa273da3e94287683853ac553a6, type: 2}
-    textResponse: 
+    textResponse: Dubalom lazily swipes the air.
     actionResponse: {fileID: 11400000, guid: e479129058f5d1b49bf704ad0cdbf011, type: 2}
   - InputAction: {fileID: 11400000, guid: 5bb04cd4c9e876445a9bccdcb48119f7, type: 2}
-    textResponse: 'took beer
+    textResponse: 'Dubalom picked up the broom
 
 '
     actionResponse: {fileID: 0}
@@ -28,3 +28,4 @@ MonoBehaviour:
 
 '
     actionResponse: {fileID: 0}
+  CustomAction: 0
