@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomNavigation: {fileID: 0}
+  inputfield: {fileID: 0}
   displayText: {fileID: 0}
   Player: {fileID: 0}
   InteractionDescriptionInRoom: []
@@ -58,6 +59,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5bb04cd4c9e876445a9bccdcb48119f7, type: 2}
   - {fileID: 11400000, guid: 3ae88fa273da3e94287683853ac553a6, type: 2}
   - {fileID: 11400000, guid: 717978be70adac14a8cfcb9a03685baa, type: 2}
+  actionlog: []
+  historyVal: 1
 --- !u!114 &4482999889301251353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,8 +77,14 @@ MonoBehaviour:
   Destination: {fileID: 0}
   Rooms:
   - {fileID: 11400000, guid: 9b5321483db16b548a86cde861eda7e0, type: 2}
+  - {fileID: 11400000, guid: 5abba1249274e2d49a66bfd4f653dec5, type: 2}
   - {fileID: 11400000, guid: ab8bf55cf6982ee408597a12a746bb3b, type: 2}
+  - {fileID: 11400000, guid: b2dd50b23dbfed1488a984f998ee81dc, type: 2}
+  - {fileID: 11400000, guid: 4ce8dacf6ae041b43acbb325c5124360, type: 2}
   RoomNodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &4482999889301251366

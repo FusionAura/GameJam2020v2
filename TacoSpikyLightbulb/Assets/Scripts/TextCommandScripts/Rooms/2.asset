@@ -10,9 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24dcdc9460b90444bb43495d3ca1f492, type: 3}
-  m_Name: LivingRoomDrunk
+  m_Name: 2
   m_EditorClassIdentifier: 
   description: 
-  roomname: livingroomdrunk
-  exits: []
+  roomname: 
+  exits:
+  - keyString: left
+    exitDescription: 
+    valueRoom: {fileID: 11400000, guid: 9b5321483db16b548a86cde861eda7e0, type: 2}
+  - keyString: right
+    exitDescription: 
+    valueRoom: {fileID: 11400000, guid: ab8bf55cf6982ee408597a12a746bb3b, type: 2}
   interactableObjectsInRoom: []

@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyword:
   - go
+  - move
+  - walk
+  - locate
+  - traverse
+  - jog
+  - run
