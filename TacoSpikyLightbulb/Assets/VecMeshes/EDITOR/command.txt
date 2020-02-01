@@ -1,0 +1,1 @@
+exec(bpy.data.texts["scr_export-vec.py"].as_string(), {"filename": "XXXX"})
