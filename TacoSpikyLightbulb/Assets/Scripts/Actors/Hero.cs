@@ -74,11 +74,19 @@ public class Hero : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Play the interacting animation, then execute onComplete.
+    /// </summary>
+    /// <param name="onComplete"></param>
     public void Interact(System.Action onComplete)
     {
         PlayAnimation("interact", onComplete, -0.2f);
     }
 
+    /// <summary>
+    /// Plays the interacting animation, then picks up the specified GO, then stands.
+    /// </summary>
+    /// <param name="go"></param>
     public void PickupGameObject(GameObject go)
     {
         Interact(() => {
@@ -97,6 +105,9 @@ public class Hero : MonoBehaviour
         PlayAnimation("stand");
     }
     
+    /// <summary>
+    /// What do you think?
+    /// </summary>
     public void Explode()
     {
         var vms = GetComponentsInChildren<VecModel>();
@@ -104,11 +115,22 @@ public class Hero : MonoBehaviour
             e.Explode();
     }
 
+    /// <summary>
+    /// Play the specified animation clip.
+    /// </summary>
+    /// <param name="animationName"></param>
     public void PlayAnimation(string animationName)
     {
         cAnimation.CrossFade(animationName, 0.2f);
     }
 
+    /// <summary>
+    /// Play the specified animation clip, then call onComplete().
+    /// onComplete can be called sooner or later by setting timeMod.
+    /// </summary>
+    /// <param name="animationName"></param>
+    /// <param name="onComplete"></param>
+    /// <param name="timeMod"></param>
     public void PlayAnimation(string animationName, System.Action onComplete, float timeMod = 0f)
     {
         PlayAnimation(animationName);
@@ -116,6 +138,11 @@ public class Hero : MonoBehaviour
         AddTimeout(onComplete, cAnimation.GetClip(animationName).length + timeMod);
     }
 
+    /// <summary>
+    /// Call callback() after a delay.
+    /// </summary>
+    /// <param name="callback"></param>
+    /// <param name="delay"></param>
     public void AddTimeout(System.Action callback, float delay)
     {
         timeouts.Add(new Timeout(callback, delay));
