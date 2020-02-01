@@ -45,10 +45,10 @@ public class VecModel : MonoBehaviour
         //vecMeshes = _vecMeshes.ToArray();
     }
 
-    public void Explode(float force = 0f)
+    public void Explode()
     {
         foreach(var e in VecMeshes)
-            e.Explode(force);
+            e.Explode();
 
         VecMeshes.Clear();
         Destroy(this);

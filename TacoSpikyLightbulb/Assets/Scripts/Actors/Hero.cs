@@ -13,39 +13,18 @@ public class Hero : MonoBehaviour
     private struct Timeout
     {
         public System.Action Callback;
-        public System.Action<float> OnStep;
         public float CallTime;
-
-        private float duration;
 
         public Timeout(System.Action Callback, float Duration)
         {
             this.Callback = Callback;
             this.CallTime = Time.time + Duration;
-            this.OnStep = null;
-
-            this.duration = Duration;
-        }
-
-        public Timeout(System.Action Callback, System.Action<float> OnStep, float Duration)
-        {
-            this.Callback = Callback;
-            this.CallTime = Time.time + Duration;
-            this.OnStep = OnStep;
-
-            this.duration = Duration;
         }
 
         public bool Execute()
         {
-            if (this.OnStep != null)
-            {
-                var p = 1f - Mathf.Clamp((CallTime - Time.time) / duration, 0, 1f); // Percentage of the duration that this Timeout is at.
-                OnStep(p);
-            }
-
             if (Time.time >= CallTime) {
-                if (Callback != null) Callback();
+                Callback();
                 return true;
             }
 
@@ -91,7 +70,7 @@ public class Hero : MonoBehaviour
             PickupGameObject(GameObject.Find("obj_broom"));
         }
 
-        // Swing Broom at bulb
+        // Swing Broom
         if (Input.GetKeyDown(KeyCode.E))
         {
             // Temp. Set the position to be directly under the light.
@@ -102,29 +81,6 @@ public class Hero : MonoBehaviour
             PlayAnimation("hit-up", () => {
                 lightbulb.GetComponent<Rigidbody>().useGravity = true;
             }, -0.2f);
-        }
-
-        // Swing Broom at ladder
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            // Temp. Set the position to be directly under the light.
-            var ladder = GameObject.Find("obj_ladder");
-
-            PlayAnimation("hit-up", () => {
-                ladder.GetComponent<Rigidbody>().useGravity = true;
-            }, -0.2f);
-        }
-
-        // Open fridge
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Interact(() => {
-                var fridgeDoor = GameObject.Find("door");
-
-                AddTimeoutOnStep((p) => {
-                    fridgeDoor.transform.localRotation = Quaternion.Euler(-90f, p * 135f, 0f);
-                }, 1f);
-            });
         }
 
         for (var i = 0; i < timeouts.Count; i++)
@@ -142,17 +98,7 @@ public class Hero : MonoBehaviour
         if (collision.gameObject.tag == "danger")
         {
             Explode();
-            return;
-        }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "obj_landmine")
-        {
-            Explode(50f);
-            other.gameObject.GetComponent<VecModel>().Explode(50f);
-            return;
+            Destroy(GetComponent<BoxCollider>());
         }
     }
 
@@ -186,17 +132,15 @@ public class Hero : MonoBehaviour
         //cAnimation.
         PlayAnimation("stand");
     }
-
+    
     /// <summary>
     /// What do you think?
     /// </summary>
-    public void Explode(float force = 0f)
+    public void Explode()
     {
         var vms = GetComponentsInChildren<VecModel>();
         foreach (var e in vms)
-            e.Explode(force);
-
-        Destroy(GetComponent<BoxCollider>());
+            e.Explode();
     }
 
     /// <summary>
@@ -230,15 +174,5 @@ public class Hero : MonoBehaviour
     public void AddTimeout(System.Action callback, float delay)
     {
         timeouts.Add(new Timeout(callback, delay));
-    }
-
-    /// <summary>
-    /// Calls callback every frame of in duration.
-    /// </summary>
-    /// <param name="onStep"></param>
-    /// <param name="duration"></param>
-    public void AddTimeoutOnStep(System.Action<float> callback, float duration)
-    {
-        timeouts.Add(new Timeout(null, callback, duration));
     }
 }

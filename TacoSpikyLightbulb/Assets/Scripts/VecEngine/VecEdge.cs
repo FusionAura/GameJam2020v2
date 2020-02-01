@@ -467,7 +467,7 @@ public class VecEdge
     /// Creates (and returns) a GameObject with a Mesh containing a single line.
     /// Returns null if the VecEdge is Invisible at the time of calling.
     /// </summary>
-    public void CreateExplosionGO(Vector3 parentPosition, float force = 0f)
+    public void CreateExplosionGO(Transform parent)
     {
         if (!this.IsVisible) return;
 
@@ -479,6 +479,7 @@ public class VecEdge
         go.transform.rotation = Quaternion.LookRotation(_vec3D);
 
         go.transform.localScale = new Vector3(1f, 1f, _vec3D.magnitude);
+        go.transform.parent = parent;
         go.transform.parent = null;
 
         GameObject go2 = new GameObject("VecMeshGO");
@@ -492,12 +493,8 @@ public class VecEdge
         cc.direction = 2;
         cc.radius = 0.1f;
 
-        var rb = go.AddComponent<Rigidbody>();
-        if (force != 0f)
-        {
-            var dir = Verts[0].World + _vec3D * 0.5f;
-            dir = dir - parentPosition;
-            rb.velocity = dir.normalized * force;
-        }
+        go.AddComponent<Rigidbody>();
+
+        
     }
 }
