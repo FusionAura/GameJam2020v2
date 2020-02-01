@@ -958,6 +958,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6575613937050237559}
     m_Modifications:
+    - target: {fileID: 1005144687324040956, guid: 4aa14c344f6eb2843841a97a2e000654,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.610321
+      objectReference: {fileID: 0}
     - target: {fileID: 1005144687593381143, guid: 4aa14c344f6eb2843841a97a2e000654,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1067,6 +1072,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005144689007703159, guid: 4aa14c344f6eb2843841a97a2e000654,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005144689007703159, guid: 4aa14c344f6eb2843841a97a2e000654,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aa14c344f6eb2843841a97a2e000654, type: 3}
