@@ -13,19 +13,17 @@ MonoBehaviour:
   m_Name: Beer
   m_EditorClassIdentifier: 
   noun: beer
-  description: There are many bottles of Beer
+  description: There are numerous bottles of beer
   interactions:
   - InputAction: {fileID: 11400000, guid: 3ae88fa273da3e94287683853ac553a6, type: 2}
-    textResponse: 
+    textResponse: Dubalom drinks a bottle.
     actionResponse: {fileID: 0}
   - InputAction: {fileID: 11400000, guid: 5bb04cd4c9e876445a9bccdcb48119f7, type: 2}
-    textResponse: 'took beer
+    textResponse: 'took the bottles of beer
 
 '
     actionResponse: {fileID: 0}
   - InputAction: {fileID: 11400000, guid: 184088a123714b146a32fc19d26069f4, type: 2}
-    textResponse: 'Cold Beer
-
-'
+    textResponse: There are 10 Bottles of Beer
     actionResponse: {fileID: 0}
   CustomAction: 1

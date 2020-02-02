@@ -113,7 +113,7 @@ public class InteractableItems : MonoBehaviour
         }
         else
         {
-            controller.LogStringWithReturn("There is no " + nounToUse + "in your inventory to use.");
+            controller.LogStringWithReturn("There is no " + nounToUse + " in your inventory to use.");
         }
     }
 

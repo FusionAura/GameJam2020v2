@@ -800,6 +800,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5000001
       objectReference: {fileID: 0}
+    - target: {fileID: 9197011980382861146, guid: 75df3e2f22ee56b46ac8adbdf9975738,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 6567598988119128571}
     - target: {fileID: 9197011981405758756, guid: 75df3e2f22ee56b46ac8adbdf9975738,
         type: 3}
       propertyPath: m_Animations.Array.size
@@ -1240,6 +1245,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7282915287553580256}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6567598988119128571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4482999889301251355, guid: f2dd021c11b36a54492d6966ba60d522,
+    type: 3}
+  m_PrefabInstance: {fileID: 7282915287553580256}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc05d78b7f08a65409e92dd4816fd867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7282915287899202080
 PrefabInstance:
   m_ObjectHideFlags: 0

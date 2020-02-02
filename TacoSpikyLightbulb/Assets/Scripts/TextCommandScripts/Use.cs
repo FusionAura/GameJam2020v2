@@ -18,7 +18,6 @@ public class Use : InputAction
         {
             if (seperatedInputWords.Length > 1)
             {
-                Debug.Log("here");
                 //
                 switch (seperatedInputWords[1])
                 {
@@ -26,12 +25,13 @@ public class Use : InputAction
                         {
                             if (controller.Beers > 0)
                             {
+
                                 controller.standardDrinks += 1;
                                 controller.Beers -= 1;
                                 controller.actionlog.Insert(0, "Drunk a bottle of beer." + "\n");
                                 if (controller.standardDrinks > 5)
                                 {
-
+                                    controller.Player.GetComponent<Hero>().Explode();
                                 }
                             }
                             else
@@ -43,18 +43,37 @@ public class Use : InputAction
                     case "broom":
                         {
 
-                            if (controller.GotBroom == true && controller.GetComponent<RoomNavigation>().CurrentRoom == rmName3)
+                            if (controller.GotBroom == true)
                             {
-                                // Temp. Set the position to be directly under the light.
-                                var lightbulb = GameObject.Find("obj_lightbulb");
-                                Vector3 underTheLightbulb = new Vector3(lightbulb.transform.position.x, controller.Player.GetComponent<Hero>().transform.position.y, lightbulb.transform.position.z);
-                                controller.Player.GetComponent<Hero>().transform.position = underTheLightbulb;
-
-                                controller.Player.GetComponent<Hero>().PlayAnimation("hit-up", () =>
+                                if (controller.GetComponent<RoomNavigation>().CurrentRoom == rmName3)
                                 {
-                                    lightbulb.GetComponent<Rigidbody>().useGravity = true;
-                                }, -0.2f);
+                                    // Temp. Set the position to be directly under the light.
+                                    var lightbulb = GameObject.Find("obj_lightbulb");
+                                    Vector3 underTheLightbulb = new Vector3(lightbulb.transform.position.x, controller.Player.GetComponent<Hero>().transform.position.y, lightbulb.transform.position.z);
+                                    controller.Player.GetComponent<Hero>().transform.position = underTheLightbulb;
 
+                                    controller.Player.GetComponent<Hero>().PlayAnimation("hit-up", () =>
+                                    {
+                                        lightbulb.GetComponent<Rigidbody>().useGravity = true;
+                                    }, -0.2f);
+                                }
+                                else if (controller.GetComponent<RoomNavigation>().CurrentRoom == rmName7)
+                                {
+                                    // Temp. Set the position to be directly under the light.
+                                    var lightbulb = GameObject.Find("obj_ladder");
+                                    Vector3 underTheLightbulb = new Vector3(lightbulb.transform.position.x, controller.Player.GetComponent<Hero>().transform.position.y, lightbulb.transform.position.z);
+                                    controller.Player.GetComponent<Hero>().transform.position = underTheLightbulb;
+
+                                    controller.Player.GetComponent<Hero>().PlayAnimation("hit-up", () =>
+                                    {
+                                        lightbulb.GetComponent<Rigidbody>().useGravity = true;
+                                    }, -0.2f);
+                                    controller.LadderReachable = true;
+                                }
+                                else
+                                {
+
+                                }
                             }
                             break;
                         }
