@@ -10,31 +10,32 @@ public class Take : InputAction
         {
             if (seperatedInputWords.Length > 1)
             {
+                Debug.Log("here2");
                 Dictionary<string, string> takeDictionary = controller.interactableItems.Take(seperatedInputWords);
                 if (takeDictionary != null)
                 {
+                    Debug.Log("here3");
                     switch (seperatedInputWords[1])
                     {
                         case "beer":
                             {
-                                if (controller.Beers > 0)
+                                Debug.Log("here4");
+                                controller.Beers += 10;
+                                controller.actionlog.Insert(0, "Found 10 Bottles of Beer." + "\n");
+
+                                controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+
+                                controller.Player.GetComponent<Hero>().Interact(() =>
                                 {
-                                    controller.Beers += 10;
-                                    controller.actionlog.Insert(0, "Found 10 Bottles of Beer." + "\n");
+                                    var fridgeDoor = GameObject.Find("door");
 
-                                    controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
-
-                                    controller.Player.GetComponent<Hero>().Interact(() =>
+                                    controller.Player.GetComponent<Hero>().AddTimeoutOnStep((p) =>
                                     {
-                                        var fridgeDoor = GameObject.Find("door");
-
-                                        controller.Player.GetComponent<Hero>().AddTimeoutOnStep((p) =>
-                                        {
-                                            fridgeDoor.transform.localRotation = Quaternion.Euler(-90f, p * 135f, 0f);
-                                        }, 1f);
-                                    });
-                                }
-                                break;
+                                        fridgeDoor.transform.localRotation = Quaternion.Euler(-90f, p * 135f, 0f);
+                                    }, 1f);
+                                });
+                                
+                            break;
                             }
                         case "broom":
                             {
@@ -54,7 +55,7 @@ public class Take : InputAction
                             }
                         case "ladder":
                             {
-                                if (controller.GotBroom == true)
+                                if (controller.GotBroom == false && controller.LadderReachable == true)
                                 {
                                     controller.GotLadder = true;
                                     controller.Player.GetComponent<Hero>().GrabLadder();

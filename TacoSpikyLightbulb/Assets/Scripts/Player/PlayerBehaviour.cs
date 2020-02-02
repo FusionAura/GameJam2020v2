@@ -9,7 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
     private Hero AnimationScript;
     public Transform Destination;
     private Quaternion lastDirection;
-
+    public GameController controller;
 
     [Range(1f,10)]
     public float walkSpeed = 1f;

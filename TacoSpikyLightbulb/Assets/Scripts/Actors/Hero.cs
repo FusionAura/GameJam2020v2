@@ -222,6 +222,7 @@ public class Hero : MonoBehaviour
     /// </summary>
     public void Explode(float force = 0f)
     {
+
         GetComponent<PlayerBehaviour>().alive = false;
         var vms = GetComponentsInChildren<VecModel>();
         foreach (var e in vms)
