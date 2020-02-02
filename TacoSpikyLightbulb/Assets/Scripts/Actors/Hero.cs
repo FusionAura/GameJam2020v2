@@ -325,7 +325,7 @@ public class Hero : MonoBehaviour
     /// Returns false if he can't.
     /// </summary>
     /// <returns></returns>
-    public bool PickupLadder()
+    public void PickupLadder()
     {
         var ladder = GameObject.Find("obj_ladder");
         

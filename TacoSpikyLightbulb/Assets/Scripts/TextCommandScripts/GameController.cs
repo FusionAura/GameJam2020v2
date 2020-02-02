@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public Room ladderlocation,broomLocation;
     public InputField inputfield;
     public Text displayText;
-    public GameObject Player;
+    public GameObject Player, LadderDestination, LadderDestinationBottom;
     [HideInInspector]
     public List<string> InteractionDescriptionInRoom = new List<string>();
 
@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
     public Text HUDTimer,AttemptsCounter;
     public static int Deathcounter;
     public int standardDrinks,Beers;
-    public bool GotGlove, GotBroom, GotLadder, LadderReachable,LadderPlaced = false;
+    public bool GotGlove, GotBroom, GotLadder, LadderReachable,LadderPlaced = false,ladderstate = false;
 
 
     void Awake()
