@@ -35,6 +35,10 @@ public class Take : InputAction
 
                                     controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
 
+                                    var fridgeDoor = GameObject.Find("door");
+                                    GameObject.Find("obj_fridge").GetComponent<AudioSource>().Play();
+
+
                                     controller.Player.GetComponent<Hero>().Interact(() =>
                                     {
                                         var fridgeDoor = GameObject.Find("door");

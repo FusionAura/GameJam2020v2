@@ -69,15 +69,14 @@ public class Hero : MonoBehaviour
     {
         /*
         if (Input.GetKeyDown(KeyCode.A))
-
         {
             
         }
 
         if (Input.GetKeyDown(KeyCode.B))
         {
-            DrinkCurItem();
-        }*/
+            PlaceLadder();
+        }
 
         
         if (Input.GetKeyDown(KeyCode.A))
@@ -208,6 +207,35 @@ public class Hero : MonoBehaviour
             ladder.GetComponent<Rigidbody>().useGravity = true;
             PlayAnimation("stand");
         }, -0.2f);
+    }
+
+    /// <summary>
+    /// Will place the ladder at the current location (if he's holding it).
+    /// </summary>
+    public bool PlaceLadder()
+    {
+        if (!item || item.name != "obj_ladder") return false;
+
+        Interact(() => {
+            
+        });
+
+        AddTimeout(() =>
+        {
+            var _item = item;
+            DropCurrentGameObject(); ;
+
+            _item.transform.parent = null;
+            _item.transform.eulerAngles = Vector3.zero;
+
+            var p = _item.transform.position;
+            p.y = 0;
+
+            _item.transform.position = p;
+
+        }, 0.5f);
+
+        return true;
     }
 
     public void Fall()

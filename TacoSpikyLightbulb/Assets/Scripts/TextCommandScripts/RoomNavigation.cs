@@ -25,6 +25,12 @@ public class RoomNavigation : MonoBehaviour
             RoomLocations.Add(Rooms[i], RoomNodes[i]);
         }
         controller = GetComponent<GameController>();
+
+        // Remove the mesh filters at runtime.
+        foreach(var e in RoomNodes)
+        {
+            Destroy(e.GetComponent<MeshFilter>());
+        }
     }
 
     public void UnPackExitsInRoom()

@@ -11,6 +11,8 @@ public class VecModel : MonoBehaviour
 
     public VecMesh.MaskedBy MaskedBy = VecMesh.MaskedBy.All;
 
+    public AudioClip ExplosionAudio = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,12 @@ public class VecModel : MonoBehaviour
             throw new System.Exception("VecModel must have at least one VecMeshAsset.");
 
         ProcessVecMeshAssets();
+
+        if (ExplosionAudio)
+        {
+            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.clip = ExplosionAudio;
+        }
     }
 
     private void ProcessVecMeshAssets()
@@ -47,7 +55,9 @@ public class VecModel : MonoBehaviour
 
     public void Explode(float force = 0f)
     {
-        foreach(var e in VecMeshes)
+        if (ExplosionAudio) this.gameObject.GetComponent<AudioSource>().Play();
+
+        foreach (var e in VecMeshes)
             e.Explode(force);
 
         VecMeshes.Clear();

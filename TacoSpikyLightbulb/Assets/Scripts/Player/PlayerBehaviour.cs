@@ -18,6 +18,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void Awake()
     {
         AnimationScript = GetComponent<Hero>();
+        lastDirection = Quaternion.Euler(0f, 180f, 0f);
     }
 
     private void Update()
