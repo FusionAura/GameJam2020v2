@@ -178,6 +178,8 @@ public class Hero : MonoBehaviour
         Interact(() => { 
             Destroy(GameObject.Find("obj_glove"));
         });
+
+        hasGloves = true;
     }
 
     public void HitLadder()
