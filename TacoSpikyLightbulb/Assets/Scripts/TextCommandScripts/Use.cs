@@ -88,7 +88,12 @@ public class Use : InputAction
                         }
                     case "ladder":
                         {
-                            Debug.Log("here");
+                           if (controller.ladderstate == true)
+                            {
+                                if (controller.GotGlove == true)
+                                {
+                                    controller.Player.GetComponent<Hero>().ChangeLightbulb();
+                                }
 
                             break;
                         }
