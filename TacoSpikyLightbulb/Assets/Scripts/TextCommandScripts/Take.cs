@@ -41,7 +41,6 @@ public class Take : InputAction
 
                                     controller.Player.GetComponent<Hero>().Interact(() =>
                                     {
-
                                         controller.Player.GetComponent<Hero>().AddTimeoutOnStep((p) =>
                                         {
                                             fridgeDoor.transform.localRotation = Quaternion.Euler(-90f, p * 135f, 0f);
