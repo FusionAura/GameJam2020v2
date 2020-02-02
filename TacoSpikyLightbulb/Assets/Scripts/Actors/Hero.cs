@@ -72,6 +72,11 @@ public class Hero : MonoBehaviour
             PickupGameObject(GameObject.Find("obj_ladder"));
         }
 
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            DrinkCurItem();
+        }
+
         /*
          * // Run
         if (Input.GetKeyDown(KeyCode.A))
@@ -159,14 +164,21 @@ public class Hero : MonoBehaviour
         PlayAnimation("interact", onComplete, -0.2f);
     }
 
-    public void DrinkCurItem()
+    /// <summary>
+    /// Returns false if no item is held.
+    /// </summary>
+    public bool DrinkCurItem()
     {
+        if (!item) return false;
+
         PlayAnimation("drink", () => { 
-            if (item)
-            {
-                item.GetComponent<VecModel>().Explode();
-            }
+            
+            item.GetComponent<VecModel>().Explode();
+
+            PlayAnimation("stand");
         });
+
+        return true;
     }
 
     public void HitLadder()
