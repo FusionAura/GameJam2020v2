@@ -73,7 +73,7 @@ public class Hero : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.A))
+        /*if (Input.GetKeyDown(KeyCode.A))
         {
             ChangeLightbulb();
         }
@@ -87,6 +87,55 @@ public class Hero : MonoBehaviour
         {
             PickupGlove();
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+           // PlayAnimation("run");
+        }
+
+        // Explode
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+           //Explode();
+        }
+
+        // Pickup Beer
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            //PickupGameObject(GameObject.Find("obj_beer"));
+        }
+
+        // Pickup Broom
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            
+        }
+
+        // Swing Broom at bulb
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+
+        }
+
+        // Swing Broom at ladder
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            //Fall();
+        }
+
+        // Open fridge
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+
+        }
+
+        // Drop current item.
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+
+        }*/
+
+
 
         for (var i = 0; i < timeouts.Count; i++)
         {

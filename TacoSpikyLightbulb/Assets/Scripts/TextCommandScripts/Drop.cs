@@ -14,24 +14,30 @@ public class Drop : InputAction
         Room rmName5 = Resources.Load("Rooms/5") as Room;
         Room rmName6 = Resources.Load("Rooms/6") as Room;
         Room rmName7 = Resources.Load("Rooms/7") as Room;
-
         if (controller.Player.GetComponent<PlayerBehaviour>().alive == true)
         {
             if (seperatedInputWords.Length > 1)
             {
-                //
                 switch (seperatedInputWords[1])
                 {
                     case "beer":
                         {
                             controller.Beers = 0;
+                            controller.Player.GetComponent<Hero>().DropCurrentGameObject();
                             break;
                         }
                     case "broom":
                         {
+                            
                             controller.GotBroom = false;
+                            controller.Player.GetComponent<Hero>().DropCurrentGameObject();
+                            controller.broomLocation = controller.GetComponent<RoomNavigation>().CurrentRoom;
 
 
+                            controller.interactableItems.nounsInroom.Add(seperatedInputWords[1]);
+                            controller.interactableItems.nounsInInventory.Remove(seperatedInputWords[1]);
+                            controller.interactableItems.RemoveActionResponsesToUsedictionary();
+                            
                             break;
                         }
                     case "gloves":
@@ -43,7 +49,13 @@ public class Drop : InputAction
                         {
                             controller.GotLadder = false;
                             controller.LadderPlaced = true;
+                            controller.Player.GetComponent<Hero>().PlaceLadder();
                             controller.ladderlocation = controller.GetComponent<RoomNavigation>().CurrentRoom;
+
+
+                            controller.interactableItems.nounsInroom.Add(seperatedInputWords[1]);
+                            controller.interactableItems.nounsInInventory.Remove(seperatedInputWords[1]);
+                            controller.interactableItems.RemoveActionResponsesToUsedictionary();
                             break;
                         }
                     default:

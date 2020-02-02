@@ -7,11 +7,11 @@ public class GameController : MonoBehaviour
 {
     [HideInInspector]
     public RoomNavigation roomNavigation;
-    [HideInInspector]
-    public Room ladderlocation;
+    
+    public Room ladderlocation,broomLocation;
     public InputField inputfield;
     public Text displayText;
-    public GameObject Player;
+    public GameObject Player, LadderDestination, LadderDestinationBottom;
     [HideInInspector]
     public List<string> InteractionDescriptionInRoom = new List<string>();
 
@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
     public Text HUDTimer,AttemptsCounter;
     public static int Deathcounter;
     public int standardDrinks,Beers;
-    public bool GotGlove, GotBroom, GotLadder, LadderReachable,LadderPlaced = false;
+    public bool GotGlove, GotBroom, GotLadder, LadderReachable,LadderPlaced = false,ladderstate = false;
 
 
     void Awake()
@@ -150,6 +150,7 @@ public class GameController : MonoBehaviour
                     {
                         interactableItems.TakeDictionary.Add(interactableInRoom.noun, interaction.textResponse);
                     }
+
                 }
             }
         }
@@ -158,10 +159,11 @@ public class GameController : MonoBehaviour
 
     public string TestVerbDictionaryWithNoun(Dictionary<string,string> VerbDictionary,string verb, string noun)
     {
-        if (VerbDictionary.ContainsKey(noun))
+        if (VerbDictionary.ContainsKey(noun) || GotBroom == true || GotLadder == true)
         {
             return VerbDictionary[noun];
         }
+
         return "You Can't " + verb + " " + noun;
     }
 

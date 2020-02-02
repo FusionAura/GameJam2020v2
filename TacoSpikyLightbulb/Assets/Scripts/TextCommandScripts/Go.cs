@@ -7,7 +7,7 @@ public class Go : InputAction
 {
     public override void RespondToInput(GameController controller, string[] seperatedInputWords)
     {
-        if (controller.Player.GetComponent<PlayerBehaviour>().alive == true)
+        if (controller.Player.GetComponent<PlayerBehaviour>().alive == true && controller.ladderstate == false)
         {
             if (seperatedInputWords.Length > 1)
             {

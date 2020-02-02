@@ -23,6 +23,13 @@ public class Take : InputAction
                         controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
 
                     }
+                    else if (controller.GetComponent<RoomNavigation>().CurrentRoom == controller.broomLocation && seperatedInputWords[1] == "broom")
+                    {
+                        controller.GotBroom = true;
+                        Debug.Log("grab");
+                        controller.Player.GetComponent<Hero>().PickupGameObject(GameObject.Find("obj_broom"));
+                        controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+                    }
                     else
                     {
                         switch (seperatedInputWords[1])
@@ -51,16 +58,21 @@ public class Take : InputAction
                                 }
                             case "broom":
                                 {
-                                    controller.GotBroom = true;
-                                    controller.Player.GetComponent<Hero>().PickupGameObject(GameObject.Find("obj_broom"));
-                                    //controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+                                    if (controller.GotBroom == false)
+                                    {
+                                        Debug.Log("Test");
+                                        controller.GotBroom = true;
+                                        controller.Player.GetComponent<Hero>().PickupGameObject(GameObject.Find("obj_broom"));
+                                        //controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+                                        controller.actionlog.Insert(0, "Picked up the Broom");
+                                    }
 
                                     break;
                                 }
                             case "gloves":
                                 {
                                     controller.GotGlove = true;
-
+                                    controller.Player.GetComponent<Hero>().PickupGlove();
                                     controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
 
                                     break;
@@ -70,8 +82,8 @@ public class Take : InputAction
                                     if (controller.GotBroom == false && controller.LadderReachable == true)
                                     {
                                         controller.GotLadder = true;
-                                        controller.Player.GetComponent<Hero>().HitLadder();
-                                        controller.Player.GetComponent<Hero>().PickupGameObject(GameObject.Find("obj_ladder"));
+                                        //controller.Player.GetComponent<Hero>().HitLadder();
+                                        controller.Player.GetComponent<Hero>().PickupLadder();
 
                                         controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
 
@@ -81,6 +93,7 @@ public class Take : InputAction
                                 }
                             default:
                                 {
+                                    Debug.Log("default");
                                     controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
                                     break;
                                 }
