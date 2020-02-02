@@ -41,7 +41,6 @@ public class Take : InputAction
 
                                     controller.Player.GetComponent<Hero>().Interact(() =>
                                     {
-                                        var fridgeDoor = GameObject.Find("door");
 
                                         controller.Player.GetComponent<Hero>().AddTimeoutOnStep((p) =>
                                         {
@@ -53,9 +52,10 @@ public class Take : InputAction
                                 }
                             case "broom":
                                 {
+                                    Debug.Log("Test");
                                     controller.GotBroom = true;
                                     controller.Player.GetComponent<Hero>().PickupGameObject(GameObject.Find("obj_broom"));
-                                    //controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+                                    controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
 
                                     break;
                                 }

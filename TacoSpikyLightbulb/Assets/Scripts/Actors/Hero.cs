@@ -125,6 +125,8 @@ public class Hero : MonoBehaviour
         {
            // DropCurrentGameObject();
         }
+        */
+
 
         for (var i = 0; i < timeouts.Count; i++)
         {
