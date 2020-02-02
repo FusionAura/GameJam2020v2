@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
 {
     [HideInInspector]
     public RoomNavigation roomNavigation;
+    [HideInInspector]
+    public Room ladderlocation;
     public InputField inputfield;
     public Text displayText;
     public GameObject Player;
@@ -28,7 +30,7 @@ public class GameController : MonoBehaviour
     public Text HUDTimer,AttemptsCounter;
     public static int Deathcounter;
     public int standardDrinks,Beers;
-    public bool GotGlove, GotBroom, GotLadder, LadderReachable;
+    public bool GotGlove, GotBroom, GotLadder, LadderReachable,LadderPlaced = false;
 
 
     void Awake()
@@ -41,9 +43,7 @@ public class GameController : MonoBehaviour
         DisplayRoomText();
         DisplayLoggedtext();
         AttemptsCounter.text = Deathcounter.ToString();
-
-
-
+        actionlog.Insert(0,"The Lightbulb is not working. Walk Dubalom through the steps to repair it." + "\n");
     }
 
     public void Die()
