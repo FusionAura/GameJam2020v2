@@ -38,6 +38,8 @@ public class BGMManager : MonoBehaviour
         uniqueStrings.Add(uniqueString);
 
         SetBGMIndex(curClipIdx + 1);
+
+        Debug.Log("BGM incremented");
     }
 
     // Update is called once per frame

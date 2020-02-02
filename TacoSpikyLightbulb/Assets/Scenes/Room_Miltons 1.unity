@@ -235,7 +235,6 @@ PrefabInstance:
       propertyPath: RoomNodes.Array.data[7]
       value: 
       objectReference: {fileID: 1368284273}
-<<<<<<< HEAD
     - target: {fileID: 6567598988119128569, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}
       propertyPath: Destination
@@ -252,19 +251,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 6d71e85c34552cd4bb03c49ff56ddb16,
         type: 2}
-=======
-    - target: {fileID: 6567598988119128571, guid: a6f6a8e21f0b8904db65063f77845231,
-        type: 3}
-      propertyPath: LadderDestinationBottom
-      value: 
-      objectReference: {fileID: 1816937050}
->>>>>>> 2f0dd6acdfd60425ed2a7a7f69803d56051f5e11
     - target: {fileID: 6567598988119128571, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}
       propertyPath: LadderDestination
       value: 
       objectReference: {fileID: 1368284273}
-<<<<<<< HEAD
     - target: {fileID: 6567598988119128571, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}
       propertyPath: LadderDestinationBottom
@@ -276,8 +267,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ab8bf55cf6982ee408597a12a746bb3b,
         type: 2}
-=======
->>>>>>> 2f0dd6acdfd60425ed2a7a7f69803d56051f5e11
     - target: {fileID: 6575613937050237559, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -426,7 +415,7 @@ PrefabInstance:
     - target: {fileID: 7557287678965134117, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -15.610352
+      value: -15.610321
       objectReference: {fileID: 0}
     - target: {fileID: 7728475612202626296, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}
@@ -1062,11 +1051,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &1755924780 stripped
-=======
---- !u!1 &1816937050 stripped
->>>>>>> 2f0dd6acdfd60425ed2a7a7f69803d56051f5e11
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7028084465057504832, guid: a3d6e65c921c345498164ef4bad4324e,
     type: 3}
@@ -1199,16 +1184,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 422251474754372079, guid: 4c5214f5625fc3445931bdc371c14754,
-        type: 3}
-      propertyPath: AudioClips.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 422251474754372079, guid: 4c5214f5625fc3445931bdc371c14754,
-        type: 3}
-      propertyPath: AudioClips.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: f48d7ae054a78f5448653700618de80c, type: 3}
     - target: {fileID: 422251474754372080, guid: 4c5214f5625fc3445931bdc371c14754,
         type: 3}
       propertyPath: m_Name

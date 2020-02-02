@@ -36,23 +36,39 @@ public class Take : InputAction
                         {
                             case "beer":
                                 {
-                                    Debug.Log("here4");
-                                    controller.Beers += 10;
-                                    controller.actionlog.Insert(0, "Found 10 Bottles of Beer." + "\n");
+                                    if (controller.Beers == 0)
+                                    { 
+                                        //controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+                                        controller.Player.GetComponent<Hero>().PickupGameObject(GameObject.Find("obj_beer"));
+                                        controller.Beers++;
+                                    }
 
-                                    controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
-
-                                    var fridgeDoor = GameObject.Find("door");
-                                    GameObject.Find("obj_fridge").GetComponent<AudioSource>().Play();
-
-
-                                    controller.Player.GetComponent<Hero>().Interact(() =>
+                                    break;
+                                }
+                            case "door":
+                            case "fridge":
+                            case "cupboard":
+                                {
+                                    //if (controller.GetComponent<RoomNavigation>().CurrentRoom == rmName1)
                                     {
-                                        controller.Player.GetComponent<Hero>().AddTimeoutOnStep((p) =>
+                                        Debug.Log("here4");
+                                        controller.Beers += 10;
+                                        controller.actionlog.Insert(0, "Found a bottle of Beer." + "\n");
+
+
+                                        var fridgeDoor = GameObject.Find("door");
+                                        GameObject.Find("obj_fridge").GetComponent<AudioSource>().Play();
+
+                                        Debug.Log(fridgeDoor);
+
+                                        controller.Player.GetComponent<Hero>().Interact(() =>
                                         {
-                                            fridgeDoor.transform.localRotation = Quaternion.Euler(-90f, p * 135f, 0f);
-                                        }, 1f);
-                                    });
+                                            controller.Player.GetComponent<Hero>().AddTimeoutOnStep((p) =>
+                                            {
+                                                fridgeDoor.transform.localRotation = Quaternion.Euler(-90f, p * 135f, 0f);
+                                            }, 1f);
+                                        });
+                                    }
 
                                     break;
                                 }
@@ -65,6 +81,8 @@ public class Take : InputAction
                                         controller.Player.GetComponent<Hero>().PickupGameObject(GameObject.Find("obj_broom"));
                                         //controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
                                         controller.actionlog.Insert(0, "Picked up the Broom");
+
+                                        GameObject.Find("bgm").GetComponent<BGMManager>().IncrementBGM("2");
                                     }
 
                                     break;
