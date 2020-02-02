@@ -33,6 +33,12 @@ ModelImporter:
   - first:
       74: 6950375889006756042
     second: drink
+  - first:
+      74: -7296707139788224124
+    second: shock
+  - first:
+      74: 1612858678025900376
+    second: dance
   externalObjects: {}
   materials:
     materialImportMode: 1
