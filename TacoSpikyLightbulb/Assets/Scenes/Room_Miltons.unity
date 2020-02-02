@@ -235,6 +235,16 @@ PrefabInstance:
       propertyPath: RoomNodes.Array.data[7]
       value: 
       objectReference: {fileID: 1368284273}
+    - target: {fileID: 6567598988119128571, guid: a6f6a8e21f0b8904db65063f77845231,
+        type: 3}
+      propertyPath: LadderDestinationBottom
+      value: 
+      objectReference: {fileID: 1816937050}
+    - target: {fileID: 6567598988119128571, guid: a6f6a8e21f0b8904db65063f77845231,
+        type: 3}
+      propertyPath: LadderDestination
+      value: 
+      objectReference: {fileID: 1368284273}
     - target: {fileID: 6575613937050237559, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -383,7 +393,7 @@ PrefabInstance:
     - target: {fileID: 7557287678965134117, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -15.610321
+      value: -15.610352
       objectReference: {fileID: 0}
     - target: {fileID: 7728475612202626296, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}
@@ -1019,6 +1029,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &1816937050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7028084465057504832, guid: a3d6e65c921c345498164ef4bad4324e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3060058540935990758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2029872333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1162,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 422251474754372079, guid: 4c5214f5625fc3445931bdc371c14754,
+        type: 3}
+      propertyPath: AudioClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 422251474754372079, guid: 4c5214f5625fc3445931bdc371c14754,
+        type: 3}
+      propertyPath: AudioClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: f48d7ae054a78f5448653700618de80c, type: 3}
     - target: {fileID: 422251474754372080, guid: 4c5214f5625fc3445931bdc371c14754,
         type: 3}
       propertyPath: m_Name

@@ -65,6 +65,8 @@ public class Take : InputAction
                                         controller.Player.GetComponent<Hero>().PickupGameObject(GameObject.Find("obj_broom"));
                                         //controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
                                         controller.actionlog.Insert(0, "Picked up the Broom");
+
+                                        GameObject.Find("bgm").GetComponent<BGMManager>().IncrementBGM("2");
                                     }
 
                                     break;

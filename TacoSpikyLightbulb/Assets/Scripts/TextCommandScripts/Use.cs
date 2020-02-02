@@ -70,6 +70,8 @@ public class Use : InputAction
 
                                     controller.Player.GetComponent<Hero>().PlayAnimation("hit-up", () =>
                                     {
+                                        GameObject.Find("bgm").GetComponent<BGMManager>().IncrementBGM("1");
+
                                         lightbulb.GetComponent<Rigidbody>().useGravity = true;
                                         controller.Player.GetComponent<Hero>().PlayAnimation("stand");
                                     }, -0.2f);
@@ -88,12 +90,13 @@ public class Use : InputAction
                         }
                     case "ladder":
                         {
-                           if (controller.ladderstate == true)
+                            if (controller.ladderstate == true)
                             {
                                 if (controller.GotGlove == true)
                                 {
                                     controller.Player.GetComponent<Hero>().ChangeLightbulb();
                                 }
+                            }
 
                             break;
                         }
