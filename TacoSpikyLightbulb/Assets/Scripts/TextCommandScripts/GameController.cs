@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public RoomNavigation roomNavigation;
     
-    public Room ladderlocation,broomLocation;
+    public Room ladderlocation,broomLocation,lightlocation;
     public InputField inputfield;
     public Text displayText;
     public GameObject Player, LadderDestination, LadderDestinationBottom;

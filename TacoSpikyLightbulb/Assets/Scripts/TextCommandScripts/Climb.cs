@@ -16,6 +16,14 @@ public class Climb : InputAction
                     controller.ladderstate = true;
                     controller.Player.GetComponent<PlayerBehaviour>().Destination = controller.LadderDestination.transform;
                     controller.Player.GetComponent<PlayerBehaviour>().MoveToTarget = true;
+                    if (controller.roomNavigation.CurrentRoom == controller.lightlocation)
+                    {
+                        controller.Player.GetComponent<Hero>().AddTimeout(() =>
+                        {
+
+                            controller.Player.GetComponent<Hero>().ChangeLightbulb();
+                        }, 2f);
+                    }
                 }
                 else
                 {

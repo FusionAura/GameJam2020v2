@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 5368322759482585039}
   - component: {fileID: 2389056373323077974}
   - component: {fileID: 7668698337112198868}
+  - component: {fileID: 3703790419834142588}
   m_Layer: 0
   m_Name: nodeLadder
   m_TagString: Untagged
@@ -167,6 +168,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3703790419834142588
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4621232472465671976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 1.0000002, z: 1}
+  m_Center: {x: -0.0000019073486, y: 0.0000038146973, z: 0}
 --- !u!1 &7028084465057504832
 GameObject:
   m_ObjectHideFlags: 0

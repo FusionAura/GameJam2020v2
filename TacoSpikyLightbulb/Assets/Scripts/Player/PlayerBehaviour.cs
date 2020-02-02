@@ -8,6 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool alive = true, MoveToTarget = false, OnLadder = false, YourWinner = false;
     private Hero AnimationScript;
     public Transform Destination;
+    private GameObject currentlocation;
     private Quaternion lastDirection;
     public GameController controller;
 
@@ -20,6 +21,7 @@ public class PlayerBehaviour : MonoBehaviour
         AnimationScript = GetComponent<Hero>();
         lastDirection = Quaternion.Euler(0f, 180f, 0f);
     }
+
 
     private void Update()
     {
@@ -40,9 +42,26 @@ public class PlayerBehaviour : MonoBehaviour
                 lastDirection = rotation;
 
             }
+
+
             if (Vector3.Distance(transform.position, Destination.position) < 0.001f)
             {
                 MoveToTarget = false;
+                currentlocation = Destination.gameObject;
+                if (currentlocation == controller.LadderDestination && controller.roomNavigation.CurrentRoom == controller.lightlocation)
+                {
+                    Debug.Log("test2");
+                    if (controller.ladderstate == true)
+                    {
+                        Debug.Log("test3");
+                        if (controller.GotGlove == true)
+                        {
+                            Debug.Log("test3");
+                            
+                        }
+                    }
+                }
+
                 AnimationScript.PlayAnimation("stand");
             }
         }
