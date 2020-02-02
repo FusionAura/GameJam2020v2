@@ -153,6 +153,18 @@ public class Hero : MonoBehaviour
         }
     }
 
+    public void ExplodeEverything()
+    {
+        var allModels = FindObjectsOfType<VecModel>();
+        foreach(var e in allModels)
+        {
+            if (e.gameObject == this.gameObject) continue;
+            e.Explode(50f);
+        }
+
+        Explode(50f);
+    }
+
     public void Idle()
     {
         PlayAnimation("stand");
@@ -162,8 +174,7 @@ public class Hero : MonoBehaviour
     {
         if (other.gameObject.name == "obj_landmine")
         {
-            Explode(50f);
-            other.gameObject.GetComponent<VecModel>().Explode(50f);
+            ExplodeEverything();
             return;
         }
     }
@@ -284,7 +295,10 @@ public class Hero : MonoBehaviour
     /// <param name="go"></param>
     public void PickupGameObject(GameObject go)
     {
-        if (item) return;
+        if (item)
+        {
+            DropCurrentGameObject();
+        }
 
         Interact(() => {
             ParentItemToMe(go);

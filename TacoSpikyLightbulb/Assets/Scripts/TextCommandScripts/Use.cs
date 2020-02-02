@@ -62,8 +62,10 @@ public class Use : InputAction
                                 {
                                     // Temp. Set the position to be directly under the light.
                                     var lightbulb = GameObject.Find("obj_ladder");
-                                    Vector3 underTheLightbulb = new Vector3(lightbulb.transform.position.x, controller.Player.GetComponent<Hero>().transform.position.y, lightbulb.transform.position.z);
-                                    controller.Player.GetComponent<Hero>().transform.position = underTheLightbulb;
+                                    //Vector3 underTheLightbulb = new Vector3(lightbulb.transform.position.x, controller.Player.GetComponent<Hero>().transform.position.y, lightbulb.transform.position.z);
+                                    //controller.Player.GetComponent<Hero>().transform.position = underTheLightbulb;
+
+                                    controller.Player.transform.rotation = Quaternion.Euler(0f, 325f, 0f);
 
                                     controller.Player.GetComponent<Hero>().PlayAnimation("hit-up", () =>
                                     {
