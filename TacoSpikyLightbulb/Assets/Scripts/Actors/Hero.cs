@@ -66,6 +66,7 @@ public class Hero : MonoBehaviour
     {
         timeouts = new List<Timeout>();
         cAnimation = GetComponentInChildren<Animation>();
+        GetComponent<Rigidbody>().detectCollisions = false;
     }
 
     // Update is called once per frame
@@ -221,7 +222,7 @@ public class Hero : MonoBehaviour
 
                 AddTimeout(() => { 
                     SceneManager.LoadScene("Credits");
-                }, 5f);
+                }, 8f);
             }
         });
 
@@ -266,6 +267,7 @@ public class Hero : MonoBehaviour
     {
         PlayAnimation("fall");
         GetComponent<Rigidbody>().useGravity = true;
+        GetComponent<Rigidbody>().detectCollisions = true;
 
         isFalling = true;
     }

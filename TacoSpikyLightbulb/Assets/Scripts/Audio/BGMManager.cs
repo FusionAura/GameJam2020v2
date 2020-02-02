@@ -9,11 +9,15 @@ public class BGMManager : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private List<string> uniqueStrings;
+
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         SetBGMIndex(0);
+
+        uniqueStrings = new List<string>();
     }
 
     public bool SetBGMIndex(int idx)
@@ -28,8 +32,11 @@ public class BGMManager : MonoBehaviour
         return true;
     }
 
-    public void IncrementBGM()
+    public void IncrementBGM(string uniqueString)
     {
+        if (uniqueStrings.Contains(uniqueString)) return;
+        uniqueStrings.Add(uniqueString);
+
         SetBGMIndex(curClipIdx + 1);
     }
 
