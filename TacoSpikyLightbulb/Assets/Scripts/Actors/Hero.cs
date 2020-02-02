@@ -279,13 +279,8 @@ public class Hero : MonoBehaviour
     public bool PickupLadder()
     {
         var ladder = GameObject.Find("obj_ladder");
-        if (ladder.GetComponent<Rigidbody>().useGravity)
-        {
-            PickupGameObject(ladder);
-            return true;
-        }
-
-        return false;
+        
+        PickupGameObject(ladder);
     }
 
     /// <summary>
