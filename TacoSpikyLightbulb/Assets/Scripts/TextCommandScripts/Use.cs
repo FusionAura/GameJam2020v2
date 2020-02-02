@@ -32,7 +32,9 @@ public class Use : InputAction
                                 controller.Player.GetComponent<Hero>().DrinkCurItem();
                                 if (controller.standardDrinks > 1)
                                 {
-                                    controller.Player.GetComponent<Hero>().Explode();
+                                    controller.Player.GetComponent<Hero>().AddTimeout(() => { 
+                                        controller.Player.GetComponent<Hero>().Explode();
+                                    }, 2f);
                                 }
                             }
                             else
