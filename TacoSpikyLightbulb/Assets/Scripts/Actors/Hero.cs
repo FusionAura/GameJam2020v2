@@ -178,6 +178,17 @@ public class Hero : MonoBehaviour
             PlayAnimation("stand");
         });
 
+        AddTimeoutOnStep((t) => {
+
+            Quaternion q = transform.rotation;
+
+            transform.rotation = Quaternion.Lerp(q, Quaternion.LookRotation(
+                Vector3.back,
+                Vector3.up
+            ), 0.9f);
+
+        }, 2f);
+
         return true;
     }
 
@@ -218,10 +229,13 @@ public class Hero : MonoBehaviour
 
     /// <summary>
     /// Plays the interacting animation, then picks up the specified GO, then stands.
+    /// Won't do anything if already holding an item.
     /// </summary>
     /// <param name="go"></param>
     public void PickupGameObject(GameObject go)
     {
+        if (item) return;
+
         Interact(() => {
             ParentItemToMe(go);
         });
