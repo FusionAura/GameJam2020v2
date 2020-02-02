@@ -230,6 +230,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6567598988119128569, guid: a6f6a8e21f0b8904db65063f77845231,
+        type: 3}
+      propertyPath: RoomNodes.Array.data[7]
+      value: 
+      objectReference: {fileID: 1368284273}
     - target: {fileID: 6575613937050237559, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -747,6 +752,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1368284273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4621232472465671976, guid: a3d6e65c921c345498164ef4bad4324e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3060058540935990758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1378266146
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,6 +61,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 717978be70adac14a8cfcb9a03685baa, type: 2}
   actionlog: []
   historyVal: 1
+  secondsMax: 59
+  minutesMax: 59
+  hoursMax: 23
+  Timer: 
+  HUDTimer: {fileID: 0}
+  AttemptsCounter: {fileID: 0}
+  standardDrinks: 0
+  Beers: 0
+  GotGlove: 0
+  GotBroom: 0
+  GotLadder: 0
+  LadderReachable: 0
 --- !u!114 &4482999889301251353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +94,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b2dd50b23dbfed1488a984f998ee81dc, type: 2}
   - {fileID: 11400000, guid: 4ce8dacf6ae041b43acbb325c5124360, type: 2}
   RoomNodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

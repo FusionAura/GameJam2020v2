@@ -67,15 +67,15 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             PickupGameObject(GameObject.Find("obj_ladder"));
         }
 
         if (Input.GetKeyDown(KeyCode.B))
         {
-            DrinkCurItem();
-        }*/
+            PlaceLadder();
+        }
 
         /*
          * // Run
@@ -207,6 +207,35 @@ public class Hero : MonoBehaviour
             ladder.GetComponent<Rigidbody>().useGravity = true;
             PlayAnimation("stand");
         }, -0.2f);
+    }
+
+    /// <summary>
+    /// Will place the ladder at the current location (if he's holding it).
+    /// </summary>
+    public bool PlaceLadder()
+    {
+        if (!item || item.name != "obj_ladder") return false;
+
+        Interact(() => {
+            
+        });
+
+        AddTimeout(() =>
+        {
+            var _item = item;
+            DropCurrentGameObject(); ;
+
+            _item.transform.parent = null;
+            _item.transform.eulerAngles = Vector3.zero;
+
+            var p = _item.transform.position;
+            p.y = 0;
+
+            _item.transform.position = p;
+
+        }, 0.5f);
+
+        return true;
     }
 
     public void Fall()
