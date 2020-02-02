@@ -8,7 +8,7 @@ public class InteractableItems : MonoBehaviour
     private GameController controller;
     [HideInInspector]
     public List<string> nounsInroom = new List<string>();
-    private List<string> nounsInInventory = new List<string>();
+    public List<string> nounsInInventory = new List<string>();
     public Dictionary<string, string> ExamineDictionary = new Dictionary<string, string>();
     public Dictionary<string, string> TakeDictionary = new Dictionary<string, string>();
     public List<InteractableObject> UseableItemList;
@@ -54,7 +54,28 @@ public class InteractableItems : MonoBehaviour
         }
     }
 
-    InteractableObject GetInteractableObjectFromUsableList(string noun)
+    public void RemoveActionResponsesToUsedictionary()
+    {
+        for (int i = 0; i < nounsInInventory.Count; i++)
+        {
+            string noun = nounsInInventory[i];
+            InteractableObject interactableObjectInInventory = GetInteractableObjectFromUsableList(noun);
+            if (interactableObjectInInventory == null)
+                continue;
+            for (int j = 0; j < interactableObjectInInventory.interactions.Length; j++)
+            {
+                Interaction interaction = interactableObjectInInventory.interactions[j];
+                if (interaction.actionResponse == null)
+                    continue;
+                if (!useDictionary.ContainsKey(noun))
+                {
+                    useDictionary.Remove(noun);
+                }
+            }
+        }
+    }
+
+    public InteractableObject GetInteractableObjectFromUsableList(string noun)
     {
         for (int i = 0; i < UseableItemList.Count; i++)
         {
@@ -85,6 +106,7 @@ public class InteractableItems : MonoBehaviour
         }
         else
         {
+            
             controller.LogStringWithReturn("There is no "+ noun + " here to take.");
             return null;
             

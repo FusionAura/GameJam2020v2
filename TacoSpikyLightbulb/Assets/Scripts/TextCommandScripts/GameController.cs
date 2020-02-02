@@ -7,8 +7,8 @@ public class GameController : MonoBehaviour
 {
     [HideInInspector]
     public RoomNavigation roomNavigation;
-    [HideInInspector]
-    public Room ladderlocation;
+    
+    public Room ladderlocation,broomLocation;
     public InputField inputfield;
     public Text displayText;
     public GameObject Player;
@@ -150,6 +150,7 @@ public class GameController : MonoBehaviour
                     {
                         interactableItems.TakeDictionary.Add(interactableInRoom.noun, interaction.textResponse);
                     }
+
                 }
             }
         }
@@ -158,10 +159,11 @@ public class GameController : MonoBehaviour
 
     public string TestVerbDictionaryWithNoun(Dictionary<string,string> VerbDictionary,string verb, string noun)
     {
-        if (VerbDictionary.ContainsKey(noun))
+        if (VerbDictionary.ContainsKey(noun) || GotBroom == true || GotLadder == true)
         {
             return VerbDictionary[noun];
         }
+
         return "You Can't " + verb + " " + noun;
     }
 
