@@ -28,6 +28,7 @@ public class Take : InputAction
                                 controller.Player.GetComponent<Hero>().Interact(() =>
                                 {
                                     var fridgeDoor = GameObject.Find("door");
+                                    GameObject.Find("obj_fridge").GetComponent<AudioSource>().Play();
 
                                     controller.Player.GetComponent<Hero>().AddTimeoutOnStep((p) =>
                                     {
