@@ -57,6 +57,8 @@ public class Hero : MonoBehaviour
     private GameObject item = null;
     private Animation cAnimation;
 
+    private bool hasGloves = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +69,7 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.A))
         {
             PickupGameObject(GameObject.Find("obj_ladder"));
@@ -76,6 +79,12 @@ public class Hero : MonoBehaviour
         {
             PlaceLadder();
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            PickupGlove();
+        }*/
+
 
         /*
          * // Run
@@ -196,6 +205,13 @@ public class Hero : MonoBehaviour
         }, 2f);
 
         return true;
+    }
+
+    public void PickupGlove()
+    {
+        Interact(() => { 
+            Destroy(GameObject.Find("obj_glove"));
+        });
     }
 
     public void HitLadder()
