@@ -201,7 +201,7 @@ public class Hero : MonoBehaviour
 
         Interact(() => {
 
-            if (hasGloves) { 
+            if (!hasGloves) { 
                 cAnimation.CrossFade("shock", 0.05f);
                 AddTimeout(() => {
                     Fall();
@@ -215,14 +215,19 @@ public class Hero : MonoBehaviour
                 goodlight.transform.position = badlight.transform.position;
                 Destroy(badlight);
 
-                Camera.main.backgroundColor = new Color(0.7f, 0.7f, 0.7f);
-                Victory();
+                //Camera.main.backgroundColor = new Color(0.7f, 0.7f, 0.7f);
+                AddTimeout(() =>
+                {
+                    Victory();
 
-                PlayAnimation("dance");
+                    PlayAnimation("dance");
 
-                AddTimeout(() => { 
-                    SceneManager.LoadScene("Credits");
-                }, 8f);
+                    AddTimeout(() =>
+                    {
+                        SceneManager.LoadScene("Credits");
+                    }, 8f);
+
+                }, 1.5f);
             }
         });
 
@@ -276,7 +281,7 @@ public class Hero : MonoBehaviour
     /// Returns false if he can't.
     /// </summary>
     /// <returns></returns>
-    public bool PickupLadder()
+    public void PickupLadder()
     {
         var ladder = GameObject.Find("obj_ladder");
         
