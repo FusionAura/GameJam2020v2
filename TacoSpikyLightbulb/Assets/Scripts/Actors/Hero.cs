@@ -88,7 +88,7 @@ public class Hero : MonoBehaviour
         // Explode
         if (Input.GetKeyDown(KeyCode.B))
         {
-            Explode();
+           //Explode();
         }
 
         // Pickup Beer
