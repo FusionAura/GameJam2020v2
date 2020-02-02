@@ -186,7 +186,7 @@ PrefabInstance:
     - target: {fileID: 7282915288149933871, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}
       propertyPath: m_Animations.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7282915288149933871, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}
@@ -199,6 +199,12 @@ PrefabInstance:
       propertyPath: m_Animations.Array.data[6]
       value: 
       objectReference: {fileID: -7811437093079328347, guid: 17f12f1a720995d40b04512887d6672f,
+        type: 3}
+    - target: {fileID: 7282915288149933871, guid: a6f6a8e21f0b8904db65063f77845231,
+        type: 3}
+      propertyPath: m_Animations.Array.data[7]
+      value: 
+      objectReference: {fileID: 6950375889006756042, guid: 17f12f1a720995d40b04512887d6672f,
         type: 3}
     - target: {fileID: 7282915289106804049, guid: a6f6a8e21f0b8904db65063f77845231,
         type: 3}

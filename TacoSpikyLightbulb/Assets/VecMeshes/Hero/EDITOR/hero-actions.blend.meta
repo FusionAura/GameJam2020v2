@@ -30,6 +30,9 @@ ModelImporter:
   - first:
       74: -7620468718608648079
     second: pickup
+  - first:
+      74: 6950375889006756042
+    second: drink
   externalObjects: {}
   materials:
     materialImportMode: 1

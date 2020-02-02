@@ -30,6 +30,12 @@ ModelImporter:
   - first:
       74: -7620468718608648079
     second: interact
+  - first:
+      74: 6950375889006756042
+    second: drink
+  - first:
+      74: -5715046431763523848
+    second: stand
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -204,12 +210,12 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: stand
-      takeName: stand
+      name: interact
+      takeName: Armature|pickup
       internalID: 0
       firstFrame: 0
-      lastFrame: 240
-      wrapMode: 2
+      lastFrame: 62
+      wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -233,16 +239,45 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: interact
-      takeName: Armature|pickup
+      name: drink
+      takeName: Armature|drink
       internalID: 0
       firstFrame: 0
-      lastFrame: 62
+      lastFrame: 179
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: stand
+      takeName: Armature|stand
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 240
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0

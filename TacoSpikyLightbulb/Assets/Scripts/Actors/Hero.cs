@@ -159,6 +159,16 @@ public class Hero : MonoBehaviour
         PlayAnimation("interact", onComplete, -0.2f);
     }
 
+    public void DrinkCurItem()
+    {
+        PlayAnimation("drink", () => { 
+            if (item)
+            {
+                item.GetComponent<VecModel>().Explode();
+            }
+        });
+    }
+
     public void HitLadder()
     {
         // Temp. Set the position to be directly under the light.
