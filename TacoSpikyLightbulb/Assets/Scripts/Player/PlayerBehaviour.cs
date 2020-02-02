@@ -37,18 +37,16 @@ public class PlayerBehaviour : MonoBehaviour
                 Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
                 transform.rotation = rotation;
                 lastDirection = rotation;
-            }
 
+            }
             if (Vector3.Distance(transform.position, Destination.position) < 0.001f)
             {
                 MoveToTarget = false;
                 AnimationScript.PlayAnimation("stand");
             }
         }
-        else
-        {
-            transform.rotation = lastDirection;
-        }
+
     }
 
 }
+

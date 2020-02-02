@@ -51,7 +51,7 @@ public class Take : InputAction
                                 {
                                     controller.GotBroom = true;
                                     controller.Player.GetComponent<Hero>().PickupGameObject(GameObject.Find("obj_broom"));
-                                    controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
+                                    //controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
 
                                     break;
                                 }
