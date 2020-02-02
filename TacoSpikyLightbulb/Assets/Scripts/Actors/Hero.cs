@@ -67,7 +67,7 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        /*if (Input.GetKeyDown(KeyCode.A))
         {
             PickupGameObject(GameObject.Find("obj_ladder"));
         }
@@ -75,7 +75,7 @@ public class Hero : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             DrinkCurItem();
-        }
+        }*/
 
         /*
          * // Run
@@ -145,6 +145,11 @@ public class Hero : MonoBehaviour
         }
     }
 
+    public void Idle()
+    {
+        PlayAnimation("stand");
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "obj_landmine")
@@ -170,6 +175,7 @@ public class Hero : MonoBehaviour
     public bool DrinkCurItem()
     {
         if (!item) return false;
+        if (item.tag != "drink") return false;
 
         PlayAnimation("drink", () => { 
             
