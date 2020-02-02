@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
     public Text HUDTimer,AttemptsCounter;
     public static int Deathcounter;
     public int standardDrinks,Beers;
-    public bool GotGlove, GotBroom, GotLadder;
+    public bool GotGlove, GotBroom, GotLadder, LadderReachable;
 
 
     void Awake()
