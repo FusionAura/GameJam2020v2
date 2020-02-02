@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hero : MonoBehaviour
 {
@@ -58,6 +59,7 @@ public class Hero : MonoBehaviour
     private Animation cAnimation;
 
     private bool hasGloves = false;
+    private bool isFalling = false;
 
     // Start is called before the first frame update
     void Start()
@@ -69,10 +71,10 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
+        
         if (Input.GetKeyDown(KeyCode.A))
         {
-            
+            ChangeLightbulb();
         }
 
         if (Input.GetKeyDown(KeyCode.B))
@@ -129,9 +131,9 @@ public class Hero : MonoBehaviour
         // Drop current item.
         if (Input.GetKeyDown(KeyCode.H))
         {
-           // DropCurrentGameObject();
+
         }
-        */
+
 
 
         for (var i = 0; i < timeouts.Count; i++)
@@ -151,6 +153,8 @@ public class Hero : MonoBehaviour
             Explode();
             return;
         }
+
+        if (isFalling) Explode();
     }
 
     public void ExplodeEverything()
@@ -236,6 +240,49 @@ public class Hero : MonoBehaviour
     }
 
     /// <summary>
+    /// Perform different functions based on the current states.
+    /// </summary>
+    public bool ChangeLightbulb()
+    {
+        // Not on ladder. Don't do anything.
+        //if (transform.position.y < -200f) return false;
+
+        Interact(() => {
+
+            if (hasGloves) { 
+                cAnimation.CrossFade("shock", 0.05f);
+                AddTimeout(() => {
+                    Fall();
+                }, 2.5f);
+            }
+            else
+            {
+                var goodlight = GameObject.Find("obj_goodlight");
+                var badlight = GameObject.Find("obj_lightbulb");
+
+                goodlight.transform.position = badlight.transform.position;
+                Destroy(badlight);
+
+                Camera.main.backgroundColor = new Color(0.7f, 0.7f, 0.7f);
+                Victory();
+
+                PlayAnimation("dance");
+
+                AddTimeout(() => { 
+                    SceneManager.LoadScene("Credits");
+                }, 5f);
+            }
+        });
+
+        return true;
+    }
+
+    public void Victory()
+    {
+
+    }
+
+    /// <summary>
     /// Will place the ladder at the current location (if he's holding it).
     /// </summary>
     public bool PlaceLadder()
@@ -266,10 +313,10 @@ public class Hero : MonoBehaviour
 
     public void Fall()
     {
-        // Temp. Set the position to be directly under the light.
-        var ladder = GameObject.Find("obj_ladder");
-
         PlayAnimation("fall");
+        GetComponent<Rigidbody>().useGravity = true;
+
+        isFalling = true;
     }
 
     /// <summary>
@@ -298,6 +345,13 @@ public class Hero : MonoBehaviour
         if (item)
         {
             DropCurrentGameObject();
+        }
+
+        var rb = go.GetComponent<Rigidbody>();
+        if (rb)
+        {
+            rb.useGravity = false;
+            rb.detectCollisions = false;
         }
 
         Interact(() => {
@@ -351,6 +405,7 @@ public class Hero : MonoBehaviour
             e.Explode(force);
 
         Destroy(GetComponent<BoxCollider>());
+        Destroy(GetComponent<Rigidbody>());
     }
 
     /// <summary>
