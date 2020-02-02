@@ -69,6 +69,7 @@ public class Hero : MonoBehaviour
     {
         /*
         if (Input.GetKeyDown(KeyCode.A))
+
         {
             
         }
@@ -76,13 +77,12 @@ public class Hero : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             DrinkCurItem();
-        }
+        }*/
 
         
-         * // Run
         if (Input.GetKeyDown(KeyCode.A))
         {
-            PlayAnimation("run");
+           // PlayAnimation("run");
         }
 
         // Explode
@@ -94,7 +94,7 @@ public class Hero : MonoBehaviour
         // Pickup Beer
         if (Input.GetKeyDown(KeyCode.C))
         {
-            PickupGameObject(GameObject.Find("obj_beer"));
+            //PickupGameObject(GameObject.Find("obj_beer"));
         }
 
         // Pickup Broom
@@ -107,12 +107,12 @@ public class Hero : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
 
-        }*/
+        }
 
         // Swing Broom at ladder
-        /*if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            Fall();
+            //Fall();
         }
 
         // Open fridge
@@ -125,7 +125,7 @@ public class Hero : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
            // DropCurrentGameObject();
-        }*/
+        }
 
         for (var i = 0; i < timeouts.Count; i++)
         {
@@ -144,6 +144,11 @@ public class Hero : MonoBehaviour
             Explode();
             return;
         }
+    }
+
+    public void Idle()
+    {
+        PlayAnimation("stand");
     }
 
     public void OnTriggerEnter(Collider other)
@@ -171,6 +176,7 @@ public class Hero : MonoBehaviour
     public bool DrinkCurItem()
     {
         if (!item) return false;
+        if (item.tag != "drink") return false;
 
         PlayAnimation("drink", () => { 
             
