@@ -1186,6 +1186,11 @@ PrefabInstance:
       objectReference: {fileID: 7557287678965134116}
     - target: {fileID: 4482999889301251355, guid: f2dd021c11b36a54492d6966ba60d522,
         type: 3}
+      propertyPath: inputActions.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482999889301251355, guid: f2dd021c11b36a54492d6966ba60d522,
+        type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 7282915289106804044}
@@ -1209,6 +1214,12 @@ PrefabInstance:
       propertyPath: AttemptsCounter
       value: 
       objectReference: {fileID: 4332617568248048014}
+    - target: {fileID: 4482999889301251355, guid: f2dd021c11b36a54492d6966ba60d522,
+        type: 3}
+      propertyPath: inputActions.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9cdfd32c4b7719a40b3b0bdf64a58c7a,
+        type: 2}
     - target: {fileID: 4482999889301251366, guid: f2dd021c11b36a54492d6966ba60d522,
         type: 3}
       propertyPath: UseableItemList.Array.size

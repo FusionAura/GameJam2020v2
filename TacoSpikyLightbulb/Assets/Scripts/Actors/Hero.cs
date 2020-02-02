@@ -72,7 +72,7 @@ public class Hero : MonoBehaviour
         /*
         if (Input.GetKeyDown(KeyCode.A))
         {
-            PickupGameObject(GameObject.Find("obj_ladder"));
+            
         }
 
         if (Input.GetKeyDown(KeyCode.B))
@@ -85,24 +85,21 @@ public class Hero : MonoBehaviour
             PickupGlove();
         }*/
 
-
-        /*
-         * // Run
         if (Input.GetKeyDown(KeyCode.A))
         {
-            PlayAnimation("run");
+           // PlayAnimation("run");
         }
 
         // Explode
         if (Input.GetKeyDown(KeyCode.B))
         {
-            Explode();
+           //Explode();
         }
 
         // Pickup Beer
         if (Input.GetKeyDown(KeyCode.C))
         {
-            PickupGameObject(GameObject.Find("obj_beer"));
+            //PickupGameObject(GameObject.Find("obj_beer"));
         }
 
         // Pickup Broom
@@ -115,12 +112,12 @@ public class Hero : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
 
-        }*/
+        }
 
         // Swing Broom at ladder
-        /*if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            Fall();
+            //Fall();
         }
 
         // Open fridge
@@ -133,7 +130,7 @@ public class Hero : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
            // DropCurrentGameObject();
-        }*/
+        }
 
         for (var i = 0; i < timeouts.Count; i++)
         {
