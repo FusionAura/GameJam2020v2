@@ -67,9 +67,10 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.A))
         {
-            PickupGameObject(GameObject.Find("obj_ladder"));
+            
         }
 
         if (Input.GetKeyDown(KeyCode.B))
@@ -77,7 +78,7 @@ public class Hero : MonoBehaviour
             DrinkCurItem();
         }
 
-        /*
+        
          * // Run
         if (Input.GetKeyDown(KeyCode.A))
         {

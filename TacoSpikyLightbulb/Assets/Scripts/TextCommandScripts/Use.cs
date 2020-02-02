@@ -29,7 +29,8 @@ public class Use : InputAction
                                 controller.standardDrinks += 1;
                                 controller.Beers -= 1;
                                 controller.actionlog.Insert(0, "Drunk a bottle of beer." + "\n");
-                                if (controller.standardDrinks > 5)
+                                controller.Player.GetComponent<Hero>().DrinkCurItem();
+                                if (controller.standardDrinks > 1)
                                 {
                                     controller.Player.GetComponent<Hero>().Explode();
                                 }
@@ -67,6 +68,7 @@ public class Use : InputAction
                                     controller.Player.GetComponent<Hero>().PlayAnimation("hit-up", () =>
                                     {
                                         lightbulb.GetComponent<Rigidbody>().useGravity = true;
+                                        controller.Player.GetComponent<Hero>().PlayAnimation("stand");
                                     }, -0.2f);
                                     controller.LadderReachable = true;
                                 }
