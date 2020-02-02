@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f870fbcec2e0d341a5e76a312854488, type: 3}
   m_Name: Drop
   m_EditorClassIdentifier: 
-  keyword: []
+  keyword:
+  - drop

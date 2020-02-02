@@ -51,6 +51,11 @@ public class Drop : InputAction
                             controller.LadderPlaced = true;
                             controller.Player.GetComponent<Hero>().PlaceLadder();
                             controller.ladderlocation = controller.GetComponent<RoomNavigation>().CurrentRoom;
+
+
+                            controller.interactableItems.nounsInroom.Add(seperatedInputWords[1]);
+                            controller.interactableItems.nounsInInventory.Remove(seperatedInputWords[1]);
+                            controller.interactableItems.RemoveActionResponsesToUsedictionary();
                             break;
                         }
                     default:

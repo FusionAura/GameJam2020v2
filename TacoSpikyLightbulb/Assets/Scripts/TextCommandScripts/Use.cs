@@ -48,6 +48,7 @@ public class Use : InputAction
                             {
                                 if (controller.GetComponent<RoomNavigation>().CurrentRoom == rmName3)
                                 {
+                                    controller.Player.GetComponent<Hero>().GetComponent<Rigidbody>().detectCollisions = true;
                                     // Temp. Set the position to be directly under the light.
                                     var lightbulb = GameObject.Find("obj_lightbulb");
                                     Vector3 underTheLightbulb = new Vector3(lightbulb.transform.position.x, controller.Player.GetComponent<Hero>().transform.position.y, lightbulb.transform.position.z);

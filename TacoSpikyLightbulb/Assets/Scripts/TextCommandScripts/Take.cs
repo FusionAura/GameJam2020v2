@@ -72,7 +72,7 @@ public class Take : InputAction
                             case "gloves":
                                 {
                                     controller.GotGlove = true;
-
+                                    controller.Player.GetComponent<Hero>().PickupGlove();
                                     controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
 
                                     break;
@@ -82,8 +82,8 @@ public class Take : InputAction
                                     if (controller.GotBroom == false && controller.LadderReachable == true)
                                     {
                                         controller.GotLadder = true;
-                                        controller.Player.GetComponent<Hero>().HitLadder();
-                                        controller.Player.GetComponent<Hero>().PickupGameObject(GameObject.Find("obj_ladder"));
+                                        //controller.Player.GetComponent<Hero>().HitLadder();
+                                        controller.Player.GetComponent<Hero>().PickupLadder();
 
                                         controller.LogStringWithReturn(controller.TestVerbDictionaryWithNoun(takeDictionary, seperatedInputWords[0], seperatedInputWords[1]));
 
