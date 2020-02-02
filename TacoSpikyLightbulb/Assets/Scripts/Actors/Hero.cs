@@ -72,7 +72,7 @@ public class Hero : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.A))
+        /*if (Input.GetKeyDown(KeyCode.A))
         {
             ChangeLightbulb();
         }
@@ -132,7 +132,7 @@ public class Hero : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
 
-        }
+        }*/
 
 
 
