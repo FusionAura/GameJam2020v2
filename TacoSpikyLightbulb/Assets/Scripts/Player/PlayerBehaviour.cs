@@ -28,24 +28,19 @@ public class PlayerBehaviour : MonoBehaviour
             float step = walkSpeed * Time.deltaTime; // calculate distance to move
             transform.position = Vector3.MoveTowards(transform.position, Destination.position, step);
 
-
-
-            Vector3 relativePos = Destination.position - transform.position;
-
-            // the second argument, upwards, defaults to Vector3.up
-            Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-            transform.rotation = rotation;
-            lastDirection = rotation;
-
-
-            if (Vector3.Distance(transform.position, Destination.position) < 0.001f)
+            if (Vector3.Distance(transform.position, Destination.position) > 0.001f)
             {
-                MoveToTarget = false;
-                AnimationScript.PlayAnimation("stand");
+                Vector3 relativePos = Destination.position - transform.position;
+
+                // the second argument, upwards, defaults to Vector3.up
+                Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+                transform.rotation = rotation;
+                lastDirection = rotation;
             }
             else
             {
-                lastDirection = rotation;
+                MoveToTarget = false;
+                AnimationScript.PlayAnimation("stand");
             }
         }
         else
